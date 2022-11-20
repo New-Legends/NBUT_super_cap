@@ -22,7 +22,7 @@
 #include "i2c.h"
 #include "tim.h"
 #include "gpio.h"
-
+#include "struct_typedef.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -56,7 +56,23 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+#define len 0x00000010U
 
+typedef struct
+{
+	uint16_t msgCFGReg;//---?????
+	uint16_t msgMaskReg;//---???????
+	uint16_t msgShuntReg;//---???????
+	uint16_t msgBusVReg;//---???????
+	uint16_t msgPowerReg;//---?????
+	uint16_t msgCurrentReg;//---???????
+	uint16_t msgCalibReg;//---?????
+	double msgBusmV;//---????,????
+	double msgShuntuV;//---??????,????
+	double msgShuntumA;//---??????,???      ????
+	double msgPowerW;//---?????,???          ????
+} INA226_Data;
+INA226_Data INA226;
 /* USER CODE END 0 */
 
 /**
@@ -93,9 +109,10 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-
+	
+  uint8_t data[8];
   /* USER CODE END 2 */
-
+  data[7] = 255;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -103,6 +120,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    HAL_I2C_Master_Receive(&hi2c2, (0x80 << 1) | 0x02,data,len, 100);
+		HAL_Delay(1);
+		//HAL_I2C_Mem_Read(&hi2c1,0x80,0x04,len,&data[0],8,100);
+		HAL_I2C_Mem_Read(&hi2c2,0x80,0x04,len,&data[4],8,100);
+		HAL_Delay(1);
+		INA226.msgBusmV = (uint16_t)(data[5] << 8 | data[4]);
+		HAL_Delay(1);
+		HAL_Delay(1);
   }
   /* USER CODE END 3 */
 }

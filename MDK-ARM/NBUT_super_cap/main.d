@@ -33,3 +33,4 @@ nbut_super_cap\main.o: ../Core/Inc/can.h
 nbut_super_cap\main.o: ../Core/Inc/i2c.h
 nbut_super_cap\main.o: ../Core/Inc/tim.h
 nbut_super_cap\main.o: ../Core/Inc/gpio.h
+nbut_super_cap\main.o: ..\user_code\bsp\struct_typedef.h

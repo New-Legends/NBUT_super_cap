@@ -183,7 +183,8 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
     __HAL_AFIO_REMAP_TIM3_PARTIAL();
 
   /* USER CODE BEGIN TIM3_MspPostInit 1 */
-
+  HAL_TIM_Base_Start(&htim3);
+  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1); //初始化tim3
   /* USER CODE END TIM3_MspPostInit 1 */
   }
 
