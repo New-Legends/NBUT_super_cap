@@ -23,6 +23,8 @@
 "nbut_super_cap\stm32f1xx_hal_tim.o"
 "nbut_super_cap\stm32f1xx_hal_tim_ex.o"
 "nbut_super_cap\system_stm32f1xx.o"
+"nbut_super_cap\bsp_ina226.o"
+"nbut_super_cap\bsp_lm5106.o"
 --strict --scatter "NBUT_super_cap\NBUT_super_cap.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
