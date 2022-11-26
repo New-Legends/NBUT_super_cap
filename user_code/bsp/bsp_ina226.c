@@ -1,12 +1,12 @@
 /**
  * @file bsp_ina226.c
  * @author NJY
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2022-11-22
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #include "bsp_ina226.h"
@@ -17,46 +17,42 @@ INA226_Data_t INA226_Data_cap;
 
 /**
  * @brief 初始化INA226
- * 
+ *
  */
 void INA226_Init(void)
 {
 
-        
-       
-    	INA226_setConfig(&hi2c2,INA226_ADDRESS,0x4000 | INA226_AVG_1| //求平均次数1
-                                INA226_VBUS_140uS|          //总线电压采集时间2116us
-                                INA226_VSH_2116uS|           //分流电压采集时间2116us
-                                INA226_MODE_CONT_SHUNT_AND_BUS);    
-        INA226_setCalibrationReg(&hi2c2,INA226_ADDRESS,INA226_CALIB_REG_DEFAULT);
-        INA226_setMaskEnable(&hi2c2,INA226_ADDRESS,INA226_MER_CNVR); 
+    INA226_setConfig(&hi2c2, INA226_ADDRESS, 0x4000 | INA226_AVG_1 | //求平均次数1
+                                                 INA226_VBUS_140uS | //总线电压采集时间2116us
+                                                 INA226_VSH_2116uS | //分流电压采集时间2116us
+                                                 INA226_MODE_CONT_SHUNT_AND_BUS);
+    INA226_setCalibrationReg(&hi2c2, INA226_ADDRESS, INA226_CALIB_REG_DEFAULT);
+    INA226_setMaskEnable(&hi2c2, INA226_ADDRESS, INA226_MER_CNVR);
 
-
-        INA226_setConfig(&hi2c1,INA226_ADDRESS,0x4000|INA226_AVG_1| //求平均次数1
-                                INA226_VBUS_2116uS|          //总线电压采集时间2116us
-                                INA226_VSH_2116uS|           //分流电压采集时间2116us
-                                INA226_MODE_CONT_SHUNT_AND_BUS); 
-        INA226_setCalibrationReg(&hi2c1,INA226_ADDRESS,INA226_CALIB_REG_DEFAULT);
-        INA226_setMaskEnable(&hi2c1,INA226_ADDRESS,INA226_MER_CNVR);
-                                 
+    INA226_setConfig(&hi2c1, INA226_ADDRESS, 0x4000 | INA226_AVG_1 |  //求平均次数1
+                                                 INA226_VBUS_2116uS | //总线电压采集时间2116us
+                                                 INA226_VSH_2116uS |  //分流电压采集时间2116us
+                                                 INA226_MODE_CONT_SHUNT_AND_BUS);
+    INA226_setCalibrationReg(&hi2c1, INA226_ADDRESS, INA226_CALIB_REG_DEFAULT);
+    INA226_setMaskEnable(&hi2c1, INA226_ADDRESS, INA226_MER_CNVR);
 }
 
 /**
  * @brief INA226传感器数据更新
- * 
+ *
  */
 void INA226_updata(void)
 {
     //电池数据获取
-    INA226_Data_bus.BusV = 1.25*INA226_getBusV(&hi2c1,INA226_ADDRESS)/1000;
-    INA226_Data_bus.ShuntmV = 2.5*INA226_getShuntV(&hi2c1,INA226_ADDRESS)/1000000;
-    INA226_Data_bus.PowerW = (INA226_Data_bus.ShuntmV/0.005)*INA226_Data_bus.BusV;//INA226_getPower(&hi2c1,INA226_ADDRESS);
-    //INA226_Data_bus.ShuntmA = INA226_getCurrent(&hi2c1,INA226_ADDRESS);
+    INA226_Data_bus.BusV = 1.25 * INA226_getBusV(&hi2c1, INA226_ADDRESS) / 1000;
+    INA226_Data_bus.ShuntmV = 2.5 * INA226_getShuntV(&hi2c1, INA226_ADDRESS) / 1000000;
+    INA226_Data_bus.PowerW = (INA226_Data_bus.ShuntmV / 0.005) * INA226_Data_bus.BusV; // INA226_getPower(&hi2c1,INA226_ADDRESS);
+    // INA226_Data_bus.ShuntmA = INA226_getCurrent(&hi2c1,INA226_ADDRESS);
     //超电数据获取
-    INA226_Data_cap.BusV = 1.25*INA226_getBusV(&hi2c2,INA226_ADDRESS);
-    INA226_Data_cap.ShuntmV = 1.25*INA226_getShuntV(&hi2c2,INA226_ADDRESS);
-    //INA226_Data_cap.PowerW = INA226_getPower(&hi2c2,INA226_ADDRESS);  //着可能是一条无用数据
-   //INA226_Data_cap.ShuntmA = INA226_getCurrent(&hi2c2,INA226_ADDRESS);
+    INA226_Data_cap.BusV = 1.25 * INA226_getBusV(&hi2c2, INA226_ADDRESS);
+    INA226_Data_cap.ShuntmV = 1.25 * INA226_getShuntV(&hi2c2, INA226_ADDRESS);
+    // INA226_Data_cap.PowerW = INA226_getPower(&hi2c2,INA226_ADDRESS);  //着可能是一条无用数据
+    // INA226_Data_cap.ShuntmA = INA226_getCurrent(&hi2c2,INA226_ADDRESS);
 }
 /**
  * @brief 获取bus电压
@@ -145,7 +141,7 @@ uint16_t INA226_getBusVReg(I2C_HandleTypeDef *I2CHandler, uint16_t DevAddress)
     uint8_t SentTable[1] = {INA226_BUSV};
     uint8_t ReceivedTable[2];
     HAL_I2C_Master_Transmit(I2CHandler, DevAddress, SentTable, 1, INA226_I2CTIMEOUT);
-    if (HAL_I2C_Master_Receive(I2CHandler,DevAddress, ReceivedTable, 2, INA226_I2CTIMEOUT) != HAL_OK)
+    if (HAL_I2C_Master_Receive(I2CHandler, DevAddress, ReceivedTable, 2, INA226_I2CTIMEOUT) != HAL_OK)
         return 0xFF;
     else
         return ((uint16_t)ReceivedTable[0] << 8 | ReceivedTable[1]);

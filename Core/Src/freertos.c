@@ -126,15 +126,6 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_communicate_task */
 
 
-/* USER CODE BEGIN Header_cap_ctrl_task */
-/**
-* @brief Function implementing the cap_ctrl thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_cap_ctrl_task */
-
-
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
 

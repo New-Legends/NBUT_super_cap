@@ -1231,6 +1231,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>task</GroupName>
+          <Files>
+            <File>
+              <FileName>cap_ctrl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user_code\task\cap_ctrl.c</FilePath>
+            </File>
+            <File>
+              <FileName>communicate.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user_code\task\communicate.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [NBUT_super_cap\NBUT_super_cap.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image NBUT_super_cap\NBUT_super_cap.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Nov 26 18:14:13 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Nov 26 18:46:01 2022
 <BR><P>
 <H3>Maximum Stack Usage =        232 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -24,6 +24,8 @@ Mutually Recursive functions
  <LI><a href="#[6]">MemManage_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[6]">MemManage_Handler</a><BR>
  <LI><a href="#[4]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[4]">NMI_Handler</a><BR>
  <LI><a href="#[8]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">UsageFault_Handler</a><BR>
+ <LI><a href="#[3e]">cap_ctrl_task</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[3e]">cap_ctrl_task</a><BR>
+ <LI><a href="#[3d]">communicate_task</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[3d]">communicate_task</a><BR>
 </UL>
 <P>
 <H3>
@@ -86,8 +88,8 @@ Function Pointers
  <LI><a href="#[8]">UsageFault_Handler</a> from stm32f1xx_it.o(i.UsageFault_Handler) referenced from startup_stm32f103xb.o(RESET)
  <LI><a href="#[d]">WWDG_IRQHandler</a> from startup_stm32f103xb.o(.text) referenced from startup_stm32f103xb.o(RESET)
  <LI><a href="#[3f]">__main</a> from __main.o(!!!main) referenced from startup_stm32f103xb.o(.text)
- <LI><a href="#[3e]">cap_ctrl_task</a> from freertos.o(i.cap_ctrl_task) referenced from freertos.o(.constdata)
- <LI><a href="#[3d]">communicate_task</a> from freertos.o(i.communicate_task) referenced from freertos.o(.constdata)
+ <LI><a href="#[3e]">cap_ctrl_task</a> from cap_ctrl.o(i.cap_ctrl_task) referenced from freertos.o(.constdata)
+ <LI><a href="#[3d]">communicate_task</a> from communicate.o(i.communicate_task) referenced from freertos.o(.constdata)
  <LI><a href="#[3c]">prvIdleTask</a> from tasks.o(i.prvIdleTask) referenced from tasks.o(i.vTaskStartScheduler)
  <LI><a href="#[3b]">prvTaskExitError</a> from port.o(i.prvTaskExitError) referenced from port.o(i.pxPortInitialiseStack)
 </UL>
@@ -1222,17 +1224,25 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[3e]"></a>cap_ctrl_task</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, freertos.o(i.cap_ctrl_task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = cap_ctrl_task &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[3e]"></a>cap_ctrl_task</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, cap_ctrl.o(i.cap_ctrl_task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72 + In Cycle
+<LI>Call Chain = cap_ctrl_task &rArr;  cap_ctrl_task (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cap_ctrl_task
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cap_ctrl_task
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[3d]"></a>communicate_task</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, freertos.o(i.communicate_task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = communicate_task &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[3d]"></a>communicate_task</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, communicate.o(i.communicate_task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72 + In Cycle
+<LI>Call Chain = communicate_task &rArr;  communicate_task (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communicate_task
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communicate_task
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
