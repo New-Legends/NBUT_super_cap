@@ -36,3 +36,4 @@ nbut_super_cap\main.o: ../Core/Inc/gpio.h
 nbut_super_cap\main.o: ../user_code/bsp/bsp_ina226.h
 nbut_super_cap\main.o: ../user_code/bsp/struct_typedef.h
 nbut_super_cap\main.o: ../user_code/bsp/bsp_LM5106.h
+nbut_super_cap\main.o: ../user_code/bsp/bsp_led.h

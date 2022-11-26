@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "bsp_ina226.h"
 #include "bsp_LM5106.h"
+#include "bsp_led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,18 +96,25 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   INA226_Init();
+  LED_Init();
 	HAL_Delay(100);
   CAP_CHARGE_ON();
+  System_Ready();
+  Cap_Charge_On();
+  Cap_Electricity_High();
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+  
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  INA226_updata();
+
+    INA226_updata();
   }
   /* USER CODE END 3 */
 }
