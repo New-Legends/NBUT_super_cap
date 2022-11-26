@@ -35,7 +35,7 @@ I (../Core/Inc/can.h)(0x6378AC8E)
 I (../Core/Inc/i2c.h)(0x6378AC8F)
 I (../Core/Inc/tim.h)(0x6378AC8F)
 I (../Core/Inc/gpio.h)(0x6378AC8E)
-I (../user_code/bsp/bsp_ina226.h)(0x637E2F54)
+I (../user_code/bsp/bsp_ina226.h)(0x637F628A)
 I (../user_code/bsp/struct_typedef.h)(0x6378BB1F)
 I (../user_code/bsp/bsp_LM5106.h)(0x637DC932)
 F (../Core/Src/gpio.c)(0x637DF86A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\gpio.o --omf_browse nbut_super_cap\gpio.crf --depend nbut_super_cap\gpio.d)
@@ -687,8 +687,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62494DED)
-F (..\user_code\bsp\bsp_ina226.c)(0x637E3157)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\bsp_ina226.o --omf_browse nbut_super_cap\bsp_ina226.crf --depend nbut_super_cap\bsp_ina226.d)
-I (..\user_code\bsp\bsp_ina226.h)(0x637E2F54)
+F (..\user_code\bsp\bsp_ina226.c)(0x637F81DF)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\bsp_ina226.o --omf_browse nbut_super_cap\bsp_ina226.crf --depend nbut_super_cap\bsp_ina226.d)
+I (..\user_code\bsp\bsp_ina226.h)(0x637F628A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62494DED)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x637E072C)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62494DED)

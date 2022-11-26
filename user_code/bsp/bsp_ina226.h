@@ -28,18 +28,18 @@
 #define INA226_I2CTIMEOUT 10
 
 #define IAN226_ADDRESS_S 0x81
-#define INA226_CONFIG 0x00 // Configuration Register (R/W)
-#define INA226_SHUNTV 0x01 // Shunt Voltage ®
-#define INA226_BUSV 0x02 // Bus Voltage ®
-#define INA226_POWER 0x03 // Power ®
-#define INA226_CURRENT 0x04 // Current ®
-#define INA226_CALIB 0x05 // Calibration (R/W)
-#define INA226_MASK 0x06 // Mask/Enable (R/W)
-#define INA226_ALERTL 0x07 // Alert Limit (R/W)
-#define INA226_MANUF_ID 0xFE // Manufacturer ID ®
-#define INA226_DIE_ID 0xFF // Die ID ®
+#define INA226_CONFIG 0x00 // 配置寄存器
+#define INA226_SHUNTV 0x01 // 检测电阻电压
+#define INA226_BUSV 0x02 // 总线电压
+#define INA226_POWER 0x03 // 功率
+#define INA226_CURRENT 0x04 // 电流
+#define INA226_CALIB 0x05 // 校准
+#define INA226_MASK 0x06 // 报警
+#define INA226_ALERTL 0x07 // 报警
+#define INA226_MANUF_ID 0xFE // 厂商
+#define INA226_DIE_ID 0xFF // 芯片ID
 
-#define INA226_MODE_POWER_DOWN (0<<0) // Power-Down
+#define INA226_MODE_POWER_DOWN (0<<0) // 掉电
 #define INA226_MODE_TRIG_SHUNT_VOLTAGE (1<<0) // Shunt Voltage, Triggered
 #define INA226_MODE_TRIG_BUS_VOLTAGE (2<<0) // Bus Voltage, Triggered
 #define INA226_MODE_TRIG_SHUNT_AND_BUS (3<<0) // Shunt and Bus, Triggered
@@ -48,7 +48,7 @@
 #define INA226_MODE_CONT_BUS_VOLTAGE (6<<0) // Bus Voltage, Continuous
 #define INA226_MODE_CONT_SHUNT_AND_BUS (7<<0) // Shunt and Bus, Continuous
 
-// Shunt Voltage Conversion Time
+//配置采样电压转换的时间
 #define INA226_VSH_140uS (0<<3)
 #define INA226_VSH_204uS (1<<3)
 #define INA226_VSH_332uS (2<<3)
@@ -98,14 +98,16 @@
 #define INA226_MANUF_ID_DEFAULT 0x5449
 #define INA226_DIE_ID_DEFAULT 0x2260
 
-#define INA226_SAMPLE_RES_MR             5250   //b 5300
+//分压电阻
+#define INA226_SAMPLE_RES_MR             5000   //b 5300
 
 #define INA226_SAMPLE_RES_MR_TOTAL       5000
 
+#define INA226_RANG_CURRENT_MA_MAX		 6000
 //===INA226的电流量程每BIT对应电流值，单位是微安
-#define INA226_RANG_CURRENT_UA_BIT        1063//(uint16_t)( INA226_RANG_CURRENT_MA_MAX*1000/(1<<15) )//1<<15=2的15次幂 305.1μA/位 这里选择相近的500μA/位，用分辨率换取计算速度
+#define INA226_RANG_CURRENT_UA_BIT       (uint16_t)( INA226_RANG_CURRENT_MA_MAX*1000/(1<<15) )//1<<15=2的15次幂 305.1μA/位 这里选择相近的500μA/位，用分辨率换取计算速度
 
-#define INA226_CALIB_REG_DEFAULT        (uint16_t)( 5120*1000/(INA226_RANG_CURRENT_UA_BIT*INA226_SAMPLE_RES_MR) )//1024
+#define INA226_CALIB_REG_DEFAULT         (uint16_t)( 5120*1000/(INA226_RANG_CURRENT_UA_BIT*INA226_SAMPLE_RES_MR) )//1024
 //INA226数据
 typedef struct
 {    
