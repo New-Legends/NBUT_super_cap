@@ -37,3 +37,7 @@ nbut_super_cap\cap_ctrl.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/po
 nbut_super_cap\cap_ctrl.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
 nbut_super_cap\cap_ctrl.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
 nbut_super_cap\cap_ctrl.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+nbut_super_cap\cap_ctrl.o: ../Core/Inc/tim.h
+nbut_super_cap\cap_ctrl.o: ../user_code/bsp/bsp_led.h
+nbut_super_cap\cap_ctrl.o: ../Core/Inc/gpio.h
+nbut_super_cap\cap_ctrl.o: ../user_code/bsp/struct_typedef.h

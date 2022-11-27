@@ -37,3 +37,6 @@ nbut_super_cap\communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/include
 nbut_super_cap\communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
 nbut_super_cap\communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
 nbut_super_cap\communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+nbut_super_cap\communicate.o: ../user_code/bsp/bsp_ina226.h
+nbut_super_cap\communicate.o: ../user_code/bsp/struct_typedef.h
+nbut_super_cap\communicate.o: ../Core/Inc/tim.h

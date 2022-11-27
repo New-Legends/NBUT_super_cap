@@ -91,15 +91,16 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_TIM3_Init();
   MX_CAN_Init();
   MX_I2C1_Init();
   MX_I2C2_Init();
-  MX_TIM2_Init();
-  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   INA226_Init();
   LED_Init();
 	HAL_Delay(100);
+  CAP_CHARGE_ON();
+  Cap_DisCharge_On();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
@@ -108,17 +109,16 @@ int main(void)
   /* Start scheduler */
   osKernelStart();
 
+  HAL_TIM_Base_Start(&htim3);
+  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-  
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-    INA226_updata();
   }
   /* USER CODE END 3 */
 }

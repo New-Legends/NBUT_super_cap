@@ -13,5 +13,10 @@
 
 #include "main.h"
 #include "FreeRTOS.h"
+#include "tim.h"
+#include "bsp_led.h"
+
+void Cap_DisCharge_On(void);
+void Cap_DisCharge_Off(void);
 
 #endif

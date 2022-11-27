@@ -13,5 +13,7 @@
 
 #include "main.h"
 #include "FreeRTOS.h"
+#include "bsp_ina226.h"
+#include "tim.h"
 
 #endif

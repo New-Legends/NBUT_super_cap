@@ -11,11 +11,9 @@
 #include "communicate.h"
 void communicate_task(void const * argument)
 {
-  /* USER CODE BEGIN communicate_task */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END communicate_task */
+
+    while (1)
+    {
+    INA226_updata();
+    }
 }

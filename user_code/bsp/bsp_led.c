@@ -17,17 +17,17 @@
  */
 void LED_Init()
 {
-    System_UnReady();
-    Cap_Charge_Off();
-    Cap_DisCharge_Off();
-    Cap_Electricity_Low();
+    System_LED_UnReady();
+    Cap_Charge_LED_Off();
+    Cap_DisCharge_LED_Off();
+    Cap_Electricity_LED_Low();
 }
 
 /**
  * @brief 点亮初始化完成LED
  * 
  */
-void System_Ready(void)
+void System_LED_Ready(void)
 {
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,GPIO_PIN_SET);
 }
@@ -36,7 +36,7 @@ void System_Ready(void)
  * @brief 初始化未完成
  * 
  */
-void System_UnReady(void)
+void System_LED_UnReady(void)
 {
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,GPIO_PIN_RESET);
 }
@@ -45,7 +45,7 @@ void System_UnReady(void)
  * @brief 点亮充电指示灯
  * 
  */
-void Cap_Charge_On(void)
+void Cap_Charge_LED_On(void)
 {
     HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,GPIO_PIN_SET);
 }
@@ -54,7 +54,7 @@ void Cap_Charge_On(void)
  * @brief 关闭充电指示灯
  * 
  */
-void Cap_Charge_Off(void)
+void Cap_Charge_LED_Off(void)
 {
     HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,GPIO_PIN_RESET);
 }
@@ -63,7 +63,7 @@ void Cap_Charge_Off(void)
  * @brief 点亮电容放电指示灯
  * 
  */
-void Cap_DisCharge_On(void)
+void Cap_DisCharge_LED_On(void)
 {
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET);
 }
@@ -72,7 +72,7 @@ void Cap_DisCharge_On(void)
  * @brief 关闭电容放电指示灯
  * 
  */
-void Cap_DisCharge_Off(void)
+void Cap_DisCharge_LED_Off(void)
 {
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_RESET);
 }
@@ -81,7 +81,7 @@ void Cap_DisCharge_Off(void)
  * @brief 电容高电压指示灯
  * 
  */
-void Cap_Electricity_High(void)
+void Cap_Electricity_LED_High(void)
 {
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET);
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_RESET);
@@ -90,7 +90,7 @@ void Cap_Electricity_High(void)
  * @brief 电容中等电压指示灯
  * 
  */
-void Cap_Electricity_Normal(void)
+void Cap_Electricity_LED_Normal(void)
 {
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_RESET);
@@ -100,7 +100,7 @@ void Cap_Electricity_Normal(void)
  * @brief 电容低电量指示灯
  * 
  */
-void Cap_Electricity_Low(void)
+void Cap_Electricity_LED_Low(void)
 {
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_SET);
