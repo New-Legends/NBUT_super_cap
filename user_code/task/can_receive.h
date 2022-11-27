@@ -36,7 +36,6 @@ extern cap_data_t cap_data;
 //初始化函数
 void can_Init(void);
 
-
 //发送函数
 void can_cmd_cap_data(int16_t bat_v,int16_t cap_energy);
 
