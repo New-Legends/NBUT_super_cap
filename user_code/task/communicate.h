@@ -16,5 +16,7 @@
 #include "bsp_ina226.h"
 #include "tim.h"
 #include "bsp_can.h"
+#include "can_receive.h"
+#include "can.h"
 
 #endif

@@ -124,6 +124,9 @@ typedef struct
 	double PowerW;//---负载的功耗，单位瓦          算出来的
 } INA226_Data_t;
 
+extern INA226_Data_t INA226_Data_bus;
+extern INA226_Data_t INA226_Data_cap;
+
 void INA226_Init(void);
 void INA226_updata(void);
 

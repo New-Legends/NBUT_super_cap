@@ -10,6 +10,8 @@
  */
 #include "can_receive.h"
 
+cap_data_t cap_data;
+
 /**
  * @brief CAN通讯初始化
  * 
@@ -19,6 +21,8 @@ void can_Init()
     can_filter_init();
 }
 
+CAN_TxHeaderTypeDef can_tx_message;
+uint8_t can_send_data[8];
 /**
  * @brief 超电控制板can发送函数
  * 
@@ -43,4 +47,14 @@ void can_cmd_cap_data(int16_t bat_v,int16_t cap_energy)
 
     HAL_CAN_AddTxMessage(&CAP_CAN, &can_tx_message, can_send_data, &send_mail_box);
 }
-
+/**
+ * @brief Get the can data object
+ * 
+ * @param data 
+ */
+void get_can_data(uint8_t data[8])
+{
+    cap_data.power = (uint16_t)(data[0] << 8 | data[1]);
+    cap_data.power_buffer = (uint16_t)(data[2] << 8 | data[3]);
+    cap_data.boom = data[4];
+}
