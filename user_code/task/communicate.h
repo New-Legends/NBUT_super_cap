@@ -15,5 +15,6 @@
 #include "FreeRTOS.h"
 #include "bsp_ina226.h"
 #include "tim.h"
+#include "bsp_can.h"
 
 #endif

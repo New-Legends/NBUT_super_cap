@@ -3,6 +3,7 @@
         "bsp_ina226.h": "c",
         "main.h": "c",
         "stm32f1xx_hal_i2c.h": "c",
-        "bsp_lm5106.h": "c"
+        "bsp_lm5106.h": "c",
+        "can_receive.h": "c"
     }
 }
