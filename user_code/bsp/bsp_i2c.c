@@ -5,18 +5,6 @@
 extern I2C_HandleTypeDef hi2c1;
 extern I2C_HandleTypeDef hi2c2;
 
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * @brief I2C发送函数
  * 

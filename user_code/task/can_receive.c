@@ -23,6 +23,7 @@ void can_Init()
 
 CAN_TxHeaderTypeDef can_tx_message;
 uint8_t can_send_data[8];
+
 /**
  * @brief 超电控制板can发送函数
  * 
@@ -47,6 +48,7 @@ void can_cmd_cap_data(int16_t bat_v,int16_t cap_energy)
 
     HAL_CAN_AddTxMessage(&CAP_CAN, &can_tx_message, can_send_data, &send_mail_box);
 }
+
 /**
  * @brief Get the can data object
  * 
