@@ -1,3 +1,4 @@
+![Image text](https://th.bing.com/th/id/R.3a2265a62c9ea6e5769e2ab506e606a6?rik=eRGuqrtWyswwWg&riu=http%3a%2f%2fv3wall.com%2fwallpaper%2f1920_1080%2f1108%2f1920_1080_20110819121148354481.jpg&ehk=XR5%2fJ%2fteAze3DUAi%2fPBouX8q2x5Eq3DAVPa7yJj6E3M%3d&risl=&pid=ImgRaw&r=0)
 # 这是一份由NEW LEGENDS战队开发的10节50法拉电容引爆代码
 
 ##  接口介绍:
