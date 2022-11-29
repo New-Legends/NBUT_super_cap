@@ -98,9 +98,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   INA226_Init();
   LED_Init();
-	HAL_Delay(100);
-  CAP_CHARGE_ON();
-  Cap_DisCharge_On();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

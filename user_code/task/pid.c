@@ -24,7 +24,7 @@ uint8_t pid_mode;
  * * @param[in]      max_out: pid最大输出
  * @retval         none
  */
-void Pid_init(pid_mode_e mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_)
+void Pid_init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_)
 {
     pid_mode = mode_;
     pid_data.Kp = pid_parm[0];

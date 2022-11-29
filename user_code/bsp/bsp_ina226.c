@@ -11,6 +11,7 @@
 
 #include "bsp_ina226.h"
 #include "i2c.h"
+#include "can_receive.h"
 
 INA226_Data_t INA226_Data_bus;
 INA226_Data_t INA226_Data_cap;
@@ -47,10 +48,11 @@ void INA226_updata(void)
     INA226_Data_bus.BusV = 1.25 * INA226_getBusV(&hi2c1, INA226_ADDRESS) / 1000;
     INA226_Data_bus.ShuntmV = 2.5 * INA226_getShuntV(&hi2c1, INA226_ADDRESS) / 1000000;
     INA226_Data_bus.PowerW = (INA226_Data_bus.ShuntmV / 0.005) * INA226_Data_bus.BusV; // INA226_getPower(&hi2c1,INA226_ADDRESS);
+    //INA226_Data_bus.Power_pid = (uint16_t)((INA226_Data_bus.PowerW / cap_data.power)*1000);
     // INA226_Data_bus.ShuntmA = INA226_getCurrent(&hi2c1,INA226_ADDRESS);
     //超电数据获取
     INA226_Data_cap.BusV = 1.25 * INA226_getBusV(&hi2c2, INA226_ADDRESS);
-    INA226_Data_cap.ShuntmV = 1.25 * INA226_getShuntV(&hi2c2, INA226_ADDRESS);
+    //INA226_Data_cap.ShuntmV = 1.25 * INA226_getShuntV(&hi2c2, INA226_ADDRESS);
     // INA226_Data_cap.PowerW = INA226_getPower(&hi2c2,INA226_ADDRESS);  //着可能是一条无用数据
     // INA226_Data_cap.ShuntmA = INA226_getCurrent(&hi2c2,INA226_ADDRESS);
 }

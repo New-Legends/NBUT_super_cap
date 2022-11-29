@@ -3,12 +3,8 @@
 
 #include "struct_typedef.h"
 
-typedef enum
-{
-    PID_SPEED = 0, //速度环
-    PID_ANGLE,     //角度环
-
-} pid_mode_e;
+#define PID_SPEED 0 //速度环
+#define PID_ANGLE 1//角度环
 
 typedef struct
 {
@@ -36,7 +32,7 @@ typedef struct
 } pid_data_t;
 
 //PID初始化
-void Pid_Init(pid_mode_e mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_);
+void Pid_Init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_);
 
 //PID计算
 fp32 Pid_calc(); 

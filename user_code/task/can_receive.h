@@ -26,6 +26,7 @@ typedef struct
 {
     uint16_t power; //从控制板获取的功率
     uint16_t power_buffer;//缓冲功率
+    uint16_t power_pid;
     uint16_t boom;//是否开启超电
     uint16_t bat_v;//电池电压
     uint16_t cap_energy;//电容剩余的能量

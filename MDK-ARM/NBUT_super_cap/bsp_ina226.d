@@ -32,3 +32,6 @@ nbut_super_cap\bsp_ina226.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_t
 nbut_super_cap\bsp_ina226.o: ..\user_code\bsp\struct_typedef.h
 nbut_super_cap\bsp_ina226.o: ../Core/Inc/main.h
 nbut_super_cap\bsp_ina226.o: ../Core/Inc/i2c.h
+nbut_super_cap\bsp_ina226.o: ../user_code/task/can_receive.h
+nbut_super_cap\bsp_ina226.o: ../Core/Inc/can.h
+nbut_super_cap\bsp_ina226.o: ../user_code/bsp/bsp_can.h

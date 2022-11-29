@@ -111,17 +111,18 @@
 //INA226数据
 typedef struct
 {    
-    uint16_t msgCFGReg;//---配置寄存器
-	uint16_t msgMaskReg;//---功能配置寄存器
-	uint16_t msgShuntReg;//---采样电压寄存器
-	uint16_t msgBusVReg;//---总线电压寄存器
-	uint16_t msgPowerReg;//---功率寄存器
-	uint16_t msgCurrentReg;//---采样电流寄存器
-	uint16_t msgCalibReg;//---校准寄存器
+    // uint16_t msgCFGReg;//---配置寄存器
+	// uint16_t msgMaskReg;//---功能配置寄存器
+	// uint16_t msgShuntReg;//---采样电压寄存器
+	// uint16_t msgBusVReg;//---总线电压寄存器
+	// uint16_t msgPowerReg;//---功率寄存器
+	// uint16_t msgCurrentReg;//---采样电流寄存器
+	// uint16_t msgCalibReg;//---校准寄存器
 	double BusV;//---总线电压，单位毫伏
 	double ShuntmV;//---采样电阻电压,单位微伏
 	double ShuntmA;//---采样电阻电流，单位安      算出来的
 	double PowerW;//---负载的功耗，单位瓦          算出来的
+	//uint16_t Power_pid;
 } INA226_Data_t;
 
 extern INA226_Data_t INA226_Data_bus;

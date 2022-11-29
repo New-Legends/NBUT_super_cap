@@ -41,3 +41,8 @@ nbut_super_cap\cap_ctrl.o: ../Core/Inc/tim.h
 nbut_super_cap\cap_ctrl.o: ../user_code/bsp/bsp_led.h
 nbut_super_cap\cap_ctrl.o: ../Core/Inc/gpio.h
 nbut_super_cap\cap_ctrl.o: ../user_code/bsp/struct_typedef.h
+nbut_super_cap\cap_ctrl.o: ..\user_code\task\pid.h
+nbut_super_cap\cap_ctrl.o: ../user_code/bsp/bsp_ina226.h
+nbut_super_cap\cap_ctrl.o: ..\user_code\task\can_receive.h
+nbut_super_cap\cap_ctrl.o: ../Core/Inc/can.h
+nbut_super_cap\cap_ctrl.o: ../user_code/bsp/bsp_can.h
