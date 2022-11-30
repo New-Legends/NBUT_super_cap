@@ -38,7 +38,7 @@ extern cap_data_t cap_data;
 void can_Init(void);
 
 //发送函数
-void can_cmd_cap_data(int16_t bat_v,int16_t cap_energy);
+void can_cmd_cap_data(uint16_t bat_v,uint16_t cap_energy,uint8_t boom);
 
 //接收函数
 void get_can_data(uint8_t data[8]);

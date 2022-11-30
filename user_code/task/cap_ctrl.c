@@ -105,10 +105,19 @@ void Cap_Pid_Init(void)
     Pid_clear();
 }
 
+/**
+ * @brief 电容控制初始化
+ * 
+ */
 void Cap_Ctrl_Init(void)
 {
+    //开启充电
     Cap_Charge_On();
+    //关闭升压模块
     Cap_DisCharge_Off();
+    //初始化模式
+    cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+    //系统初始化完成
     System_LED_Ready();
 }
 
@@ -128,5 +137,21 @@ void Cap_Ctrl(void)
     cap_ctrl_data.CAP_SHAKE_DATA = abs(cap_ctrl_data.cap_electricity - cap_ctrl_data.last_cap_electricity);
     //赋值上一次的电量
     cap_ctrl_data.last_cap_electricity = cap_ctrl_data.cap_electricity;
+    if((cap_data.boom == CAP_MODE_USER_DISCHARGE) && (cap_ctrl_data.cap_electricity > CAP_LOW_ELECTRICITY))
+    {
+        can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_USER_DISCHARGE);
+    }
+
+
+    //模式切换 当处于充电模式并且电容电量变化小于一定值时判断进入自动超电模式
+    if ((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (cap_ctrl_data.CAP_SHAKE_DATA < CAP_BAT))
+    {
+        Cap_DisCharge_On();
+        cap_ctrl_data.CAP_MODE = CAP_MODE_DISCHARGE;
+    } else if((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (cap_ctrl_data.CAP_SHAKE_DATA < CAP_BAT))
+    {
+        Cap_DisCharge_Off();
+        cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+    }
 
 }

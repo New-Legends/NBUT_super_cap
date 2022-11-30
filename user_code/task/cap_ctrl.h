@@ -31,6 +31,10 @@
 #define CAP_LOW_ELECTRICITY 400.0f //电容低电量
 #define CAP_BAT 0.2f //电容满电电压与电池电压差
 
+#define CAP_MODE_CHARGE 0          //充电模式
+#define CAP_MODE_DISCHARGE 1       //自动超电模式
+#define CAP_MODE_USER_DISCHARGE 2  //手动超电模式
+
 //控制数据结构体
 typedef struct 
 {
@@ -38,6 +42,7 @@ typedef struct
     fp32 cap_electricity; // 电容电量
     fp32 last_cap_electricity; //上一次电容容量
     fp32 CAP_SHAKE_DATA;       //电容电量抖动
+    uint8_t CAP_MODE;      //电容模式
 }cap_ctrl_data_t;
 
 void Cap_DisCharge_On(void);
