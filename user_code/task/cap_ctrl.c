@@ -16,6 +16,7 @@ cap_ctrl_data_t cap_ctrl_data;
 void cap_ctrl_task(void const * argument)
 {
     Cap_Pid_Init();
+    Cap_Ctrl_Init();
 while (1)
 {
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
@@ -34,6 +35,23 @@ while (1)
     HAL_Delay(2000);
 
 }
+}
+
+/**
+ * @brief 返回绝对值
+ * 
+ * @param a 
+ * @return fp32 
+ */
+fp32 abs(fp32 a)
+{
+    if(a > 0)
+    {
+        return a;
+    }else
+    {
+        return -a;
+    }
 }
 
 /**
@@ -87,14 +105,28 @@ void Cap_Pid_Init(void)
     Pid_clear();
 }
 
+void Cap_Ctrl_Init(void)
+{
+    Cap_Charge_On();
+    Cap_DisCharge_Off();
+    System_LED_Ready();
+}
+
 /**
- * @brief 充电控制
+ * @brief 总控制函数
  * 
  */
-void Charge_ctrl(void)
+void Cap_Ctrl(void)
 {
-    cap_ctrl_data.duty_cycle = Pid_calc();
+    //获取pid运算结果
+    cap_ctrl_data.duty_cycle = (uint16_t)Pid_calc(); 
+    //控制充电功率
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
-    cap_ctrl_data.cap_electricity = 0.5*5*INA226_Data_cap.BusV*INA226_Data_cap.BusV; //计算电容电量
+    //计算电容电量
+    cap_ctrl_data.cap_electricity = 0.5*5*INA226_Data_cap.BusV*INA226_Data_cap.BusV;
+    //计算抖动电量
+    cap_ctrl_data.CAP_SHAKE_DATA = abs(cap_ctrl_data.cap_electricity - cap_ctrl_data.last_cap_electricity);
+    //赋值上一次的电量
+    cap_ctrl_data.last_cap_electricity = cap_ctrl_data.cap_electricity;
 
 }
