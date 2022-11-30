@@ -1253,6 +1253,11 @@
               <FileType>1</FileType>
               <FilePath>..\user_code\bsp\bsp_can.c</FilePath>
             </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user_code\task\pid.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

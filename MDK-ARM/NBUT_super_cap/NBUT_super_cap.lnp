@@ -41,6 +41,7 @@
 "nbut_super_cap\communicate.o"
 "nbut_super_cap\can_receive.o"
 "nbut_super_cap\bsp_can.o"
+"nbut_super_cap\pid.o"
 --strict --scatter "NBUT_super_cap\NBUT_super_cap.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

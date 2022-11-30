@@ -24,7 +24,7 @@ extern CAN_HandleTypeDef hcan;
 //超电--控制板数据(BOOM 代表爆炸)
 typedef struct 
 {
-    uint16_t power; //从控制板获取的功率
+    fp32 power; //从控制板获取的功率
     uint16_t power_buffer;//缓冲功率
     uint16_t power_pid;
     uint16_t boom;//是否开启超电

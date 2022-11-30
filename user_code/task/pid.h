@@ -35,10 +35,10 @@ typedef struct
 void Pid_Init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_);
 
 //PID计算
-fp32 Pid_calc(); 
+fp32 Pid_calc(void); 
 
 //PID清除
-void Pid_clear();
+void Pid_clear(void);
 
 #endif
 

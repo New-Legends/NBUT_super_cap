@@ -5,6 +5,7 @@
         "stm32f1xx_hal_i2c.h": "c",
         "bsp_lm5106.h": "c",
         "can_receive.h": "c",
-        "bsp_led.h": "c"
+        "bsp_led.h": "c",
+        "pid.h": "c"
     }
 }

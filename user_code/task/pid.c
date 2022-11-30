@@ -6,9 +6,9 @@
         {                      \
             input = max;       \
         }                      \
-        else if (input < -max) \
+        else if (input < 0)    \
         {                      \
-            input = -max;      \
+            input = 1;         \
         }                      \
     }
 
@@ -24,7 +24,7 @@ uint8_t pid_mode;
  * * @param[in]      max_out: pid最大输出
  * @retval         none
  */
-void Pid_init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_)
+void Pid_Init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_)
 {
     pid_mode = mode_;
     pid_data.Kp = pid_parm[0];
@@ -46,16 +46,16 @@ void Pid_init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 
  * 
  * @return fp32 
  */
-fp32 pid_calc()
+fp32 Pid_calc(void)
 {
     pid_data.last_error = pid_data.error;
     pid_data.error = *pid_data.set - *pid_data.ref;
     if (pid_mode == PID_SPEED)
         pid_data.error_delta = pid_data.error - pid_data.last_error;
 
-    if (pid_mode == PID_ANGLE)
-        pid_data.error = rad_format(pid_data.error);
-    pid_data.error_delta = rad_format(pid_data.error - pid_data.last_error);
+    // if (pid_mode == PID_ANGLE)
+    //     pid_data.error = rad_format(pid_data.error);
+    // pid_data.error_delta = rad_format(pid_data.error - pid_data.last_error);
 
     pid_data.Pout = pid_data.Kp * pid_data.error;
     pid_data.Iout += pid_data.Ki * pid_data.error;
@@ -74,7 +74,7 @@ fp32 pid_calc()
  * @param[out]     pid: PID结构数据指针
  * @retval         none
  */
-void pid_clear()
+void Pid_clear(void)
 {
     pid_data.last_error = pid_data.error = *pid_data.set = *pid_data.ref = 0;
     pid_data.out = pid_data.Pout = pid_data.Iout = pid_data.Dout = 0;
