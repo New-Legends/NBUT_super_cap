@@ -27,7 +27,7 @@ typedef struct
     fp32 power; //从控制板获取的功率
     uint16_t power_buffer;//缓冲功率
     uint16_t power_pid;
-    uint16_t boom;//是否开启超电
+    uint8_t boom;//是否开启超电
     uint16_t bat_v;//电池电压
     uint16_t cap_energy;//电容剩余的能量
 }cap_data_t;

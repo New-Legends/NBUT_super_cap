@@ -137,10 +137,26 @@ void Cap_Ctrl(void)
     cap_ctrl_data.CAP_SHAKE_DATA = abs(cap_ctrl_data.cap_electricity - cap_ctrl_data.last_cap_electricity);
     //赋值上一次的电量
     cap_ctrl_data.last_cap_electricity = cap_ctrl_data.cap_electricity;
+
+    //手动模式切换
     if((cap_data.boom == CAP_MODE_USER_DISCHARGE) && (cap_ctrl_data.cap_electricity > CAP_LOW_ELECTRICITY))
     {
         can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_USER_DISCHARGE);
-    }
+        //开启放电
+        Cap_DisCharge_On();
+        cap_ctrl_data.CAP_MODE = CAP_MODE_USER_DISCHARGE;
+    }else if(cap_ctrl_data.cap_electricity < CAP_LOW_ELECTRICITY || cap_data.boom == CAP_MODE_CHARGE)
+            {
+                //如果电容电量过低！
+                //关闭放电
+                Cap_DisCharge_Off();
+                cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+                cap_data.boom = CAP_MODE_CHARGE;
+             } //else if(cap_data.boom == CAP_MODE_CHARGE)
+            //         {
+            //             Cap_DisCharge_Off();
+            //             cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+            //         }
 
 
     //模式切换 当处于充电模式并且电容电量变化小于一定值时判断进入自动超电模式

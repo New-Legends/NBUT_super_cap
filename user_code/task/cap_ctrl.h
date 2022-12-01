@@ -45,6 +45,8 @@ typedef struct
     uint8_t CAP_MODE;      //电容模式
 }cap_ctrl_data_t;
 
+extern cap_ctrl_data_t cap_ctrl_data;
+
 void Cap_DisCharge_On(void);
 void Cap_DisCharge_Off(void);
 
