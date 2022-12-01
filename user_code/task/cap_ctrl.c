@@ -19,21 +19,7 @@ void cap_ctrl_task(void const * argument)
     Cap_Ctrl_Init();
 while (1)
 {
-    __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
-	Cap_DisCharge_On();
-    HAL_Delay(2000);
-    __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,1);
-    Cap_DisCharge_Off();
-    HAL_Delay(2000);
-    __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,500);
-    HAL_Delay(2000);
-    __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,99);
-    HAL_Delay(2000);
-    __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,99.1);
-    HAL_Delay(2000);
-    __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,100);
-    HAL_Delay(2000);
-
+    Cap_Ctrl();
 }
 }
 

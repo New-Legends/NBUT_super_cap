@@ -52,4 +52,5 @@ void Cap_DisCharge_Off(void);
 
 void Cap_Pid_Init(void);
 void Cap_Ctrl_Init(void);
+void Cap_Ctrl(void);
 #endif
