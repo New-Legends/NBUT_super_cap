@@ -43,3 +43,6 @@ nbut_super_cap\communicate.o: ../Core/Inc/tim.h
 nbut_super_cap\communicate.o: ../user_code/bsp/bsp_can.h
 nbut_super_cap\communicate.o: ..\user_code\task\can_receive.h
 nbut_super_cap\communicate.o: ../Core/Inc/can.h
+nbut_super_cap\communicate.o: ..\user_code\task\cap_ctrl.h
+nbut_super_cap\communicate.o: ../user_code/bsp/bsp_led.h
+nbut_super_cap\communicate.o: ../Core/Inc/gpio.h
