@@ -98,6 +98,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   INA226_Init();
   LED_Init();
+	Cap_Charge_LED_On();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
@@ -169,9 +170,10 @@ void Error_Handler(void)
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1)
+ while (1)
   {
   }
+	
   /* USER CODE END Error_Handler_Debug */
 }
 
