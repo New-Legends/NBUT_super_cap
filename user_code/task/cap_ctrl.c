@@ -20,6 +20,7 @@ void cap_ctrl_task(void const * argument)
 while (1)
 {
     Cap_Ctrl();
+    Power_LED_ctrl();
 }
 }
 
@@ -87,7 +88,7 @@ void Cap_Charge_Off(void)
 void Cap_Pid_Init(void)
 {
     fp32 cap_pid_parm[5] = {CAP_PID_KP,CAP_PID_KI,CAP_PID_KD,CAP_PID_MAX_IOUT,CAP_PID_MAX_OUT};
-    Pid_Init(PID_SPEED,cap_pid_parm,&INA226_Data_bus.PowerW,&cap_data.power,0);
+    Pid_Init(PID_SPEED,cap_pid_parm,&INA226_Data_bus.PowerW,&cap_data.power, 0 , &cap_ctrl_data);
     Pid_clear();
 }
 
@@ -103,6 +104,8 @@ void Cap_Ctrl_Init(void)
     Cap_DisCharge_Off();
     //初始化模式
     cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+    //初始化功率控制
+    cap_ctrl_data.duty_cycle = 0;
     //系统初始化完成
     System_LED_Ready();
 }
@@ -131,29 +134,37 @@ void Cap_Ctrl(void)
         //开启放电
         Cap_DisCharge_On();
         cap_ctrl_data.CAP_MODE = CAP_MODE_USER_DISCHARGE;
-    }else if(cap_ctrl_data.cap_electricity < CAP_LOW_ELECTRICITY || cap_data.boom == CAP_MODE_CHARGE)
-            {
-                //如果电容电量过低！
-                //关闭放电
-                Cap_DisCharge_Off();
-                cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
-                cap_data.boom = CAP_MODE_CHARGE;
-             } //else if(cap_data.boom == CAP_MODE_CHARGE)
-            //         {
-            //             Cap_DisCharge_Off();
-            //             cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
-            //         }
-
+    }else if(cap_ctrl_data.cap_electricity < CAP_LOW_ELECTRICITY || (cap_data.boom == CAP_MODE_CHARGE && cap_ctrl_data.CAP_MODE == CAP_MODE_USER_DISCHARGE))
+    {
+        //如果电容电量过低！
+        //关闭放电
+        Cap_DisCharge_Off();
+        cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+    } 
 
     //模式切换 当处于充电模式并且电容电量变化小于一定值时判断进入自动超电模式
-    if ((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (cap_ctrl_data.CAP_SHAKE_DATA < CAP_BAT))
+    if ((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (cap_ctrl_data.CAP_SHAKE_DATA < CAP_BAT) && INA226_Data_bus.PowerW > cap_data.power)
     {
         Cap_DisCharge_On();
         cap_ctrl_data.CAP_MODE = CAP_MODE_DISCHARGE;
-    } else if((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (cap_ctrl_data.CAP_SHAKE_DATA < CAP_BAT))
+    } else if((cap_ctrl_data.CAP_MODE == CAP_MODE_DISCHARGE) && (cap_ctrl_data.CAP_SHAKE_DATA < CAP_BAT) && INA226_Data_bus.PowerW < cap_data.power)
     {
         Cap_DisCharge_Off();
         cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
     }
 
+}
+
+void Power_LED_ctrl(void)
+{
+    if(INA226_Data_cap.BusV > 20)
+    {
+        Cap_Electricity_LED_High();
+    }else if (INA226_Data_cap.BusV <12)
+    {
+        Cap_Electricity_LED_Low();
+    }else
+    {
+        Cap_Electricity_LED_Normal();
+    }
 }

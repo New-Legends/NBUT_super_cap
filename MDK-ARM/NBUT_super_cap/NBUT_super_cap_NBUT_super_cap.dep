@@ -1,7 +1,7 @@
 Dependencies for Project 'NBUT_super_cap', Target 'NBUT_super_cap': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (startup_stm32f103xb.s)(0x6378AC92)(--cpu Cortex-M3 -g --apcs=interwork -I ..\Core\Inc-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include--pd "__UVISION_VERSION SETA 535" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xb.lst --xref -o nbut_super_cap\startup_stm32f103xb.o --depend nbut_super_cap\startup_stm32f103xb.d)
-F (../Core/Src/main.c)(0x639C2AF8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\main.o --omf_browse nbut_super_cap\main.crf --depend nbut_super_cap\main.d)
+F (../Core/Src/main.c)(0x63A1C1FC)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\main.o --omf_browse nbut_super_cap\main.crf --depend nbut_super_cap\main.d)
 I (../Core/Inc/main.h)(0x6378AC8F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62494DED)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6381F6B8)
@@ -755,7 +755,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62494DED)
-F (..\user_code\bsp\bsp_ina226.c)(0x6385979E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\bsp_ina226.o --omf_browse nbut_super_cap\bsp_ina226.crf --depend nbut_super_cap\bsp_ina226.d)
+F (..\user_code\bsp\bsp_ina226.c)(0x63A16DA8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\bsp_ina226.o --omf_browse nbut_super_cap\bsp_ina226.crf --depend nbut_super_cap\bsp_ina226.d)
 I (..\user_code\bsp\bsp_ina226.h)(0x6385F7D4)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62494DED)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6381F6B8)
@@ -1001,8 +1001,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x62494DDE)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x62494DDE)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x62494DDE)
-F (..\user_code\task\cap_ctrl.c)(0x6389E83F)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\cap_ctrl.o --omf_browse nbut_super_cap\cap_ctrl.crf --depend nbut_super_cap\cap_ctrl.d)
-I (..\user_code\task\cap_ctrl.h)(0x6388A989)
+F (..\user_code\task\cap_ctrl.c)(0x63B55CF1)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\cap_ctrl.o --omf_browse nbut_super_cap\cap_ctrl.crf --depend nbut_super_cap\cap_ctrl.d)
+I (..\user_code\task\cap_ctrl.h)(0x63B5554E)
 I (../Core/Inc/main.h)(0x6378AC8F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62494DED)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6381F6B8)
@@ -1047,7 +1047,7 @@ I (../user_code/bsp/bsp_ina226.h)(0x6385F7D4)
 I (..\user_code\task\can_receive.h)(0x63889FDD)
 I (../Core/Inc/can.h)(0x638343C8)
 I (../user_code/bsp/bsp_can.h)(0x63831E94)
-I (..\user_code\task\pid.h)(0x63861C1A)
+I (..\user_code\task\pid.h)(0x63B55D81)
 F (..\user_code\task\communicate.c)(0x6388A013)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\communicate.o --omf_browse nbut_super_cap\communicate.crf --depend nbut_super_cap\communicate.d)
 I (..\user_code\task\communicate.h)(0x638340B8)
 I (../Core/Inc/main.h)(0x6378AC8F)
@@ -1092,7 +1092,7 @@ I (../Core/Inc/tim.h)(0x6381F6B8)
 I (../user_code/bsp/bsp_can.h)(0x63831E94)
 I (..\user_code\task\can_receive.h)(0x63889FDD)
 I (../Core/Inc/can.h)(0x638343C8)
-I (..\user_code\task\cap_ctrl.h)(0x6388A989)
+I (..\user_code\task\cap_ctrl.h)(0x63B5554E)
 I (../user_code/bsp/bsp_led.h)(0x63820502)
 I (../Core/Inc/gpio.h)(0x6378AC8E)
 F (..\user_code\task\can_receive.c)(0x63877410)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\can_receive.o --omf_browse nbut_super_cap\can_receive.crf --depend nbut_super_cap\can_receive.d)
@@ -1161,6 +1161,50 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x62494DED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62494DED)
-F (..\user_code\task\pid.c)(0x63861C09)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\pid.o --omf_browse nbut_super_cap\pid.crf --depend nbut_super_cap\pid.d)
-I (..\user_code\task\pid.h)(0x63861C1A)
+F (..\user_code\task\pid.c)(0x63B55DF3)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../user_code/task -I ../user_code/bsp -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3-I.\RTE\_NBUT_super_cap-ID:\Users\lenovo\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o nbut_super_cap\pid.o --omf_browse nbut_super_cap\pid.crf --depend nbut_super_cap\pid.d)
+I (..\user_code\task\pid.h)(0x63B55D81)
 I (../user_code/bsp/struct_typedef.h)(0x6378BB1F)
+I (..\user_code\task\cap_ctrl.h)(0x63B5554E)
+I (../Core/Inc/main.h)(0x6378AC8F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62494DED)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6381F6B8)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62494DED)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62494DED)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x62494DED)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x62494DDC)
+I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x62494DDC)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x62494DDC)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x62494DDC)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x62494DED)
+I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x6025237E)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x62494DED)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62494DED)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x62494DDE)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6381E6DB)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x62494DDE)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x62494DDE)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x62494DDE)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h)(0x62494DDE)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x62494DDE)
+I (../Core/Inc/tim.h)(0x6381F6B8)
+I (../user_code/bsp/bsp_led.h)(0x63820502)
+I (../Core/Inc/gpio.h)(0x6378AC8E)
+I (../user_code/bsp/bsp_ina226.h)(0x6385F7D4)
+I (..\user_code\task\can_receive.h)(0x63889FDD)
+I (../Core/Inc/can.h)(0x638343C8)
+I (../user_code/bsp/bsp_can.h)(0x63831E94)

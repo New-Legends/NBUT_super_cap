@@ -24,7 +24,7 @@ uint8_t pid_mode;
  * * @param[in]      max_out: pid最大输出
  * @retval         none
  */
-void Pid_Init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_)
+void Pid_Init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 erro_delta_,cap_ctrl_data_t *IN)
 {
     pid_mode = mode_;
     pid_data.Kp = pid_parm[0];
@@ -36,6 +36,8 @@ void Pid_Init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 
     pid_data.set = set_;
     pid_data.ref = ref_;
     pid_data.error = *set_ - *ref_;
+
+    pid_data.In = &(IN->duty_cycle);
 
     if (pid_data.mode == PID_ANGLE)
         pid_data.error_delta = erro_delta_;
@@ -63,7 +65,7 @@ fp32 Pid_calc(void)
 
     LimitMax(pid_data.Iout, pid_data.max_iout);
 
-    pid_data.out = pid_data.Pout + pid_data.Iout + pid_data.Dout;
+    pid_data.out = pid_data.Pout + pid_data.Iout + pid_data.Dout + (uint16_t)*pid_data.In;
     LimitMax(pid_data.out, pid_data.max_out);
 
     return pid_data.out;
