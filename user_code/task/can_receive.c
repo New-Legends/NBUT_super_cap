@@ -29,6 +29,7 @@ uint8_t can_send_data[8];
  * 
  * @param bat_v 电池电压
  * @param cap_energy 超电剩余电能
+ * @param boom 超电状态
  */
 void can_cmd_cap_data(uint16_t bat_v,uint16_t cap_energy,uint8_t boom)
 {
