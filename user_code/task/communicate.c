@@ -13,7 +13,7 @@
 
 void communicate_task(void const * argument)
 {
-
+    can_Init();
     while (1)
     {
     INA226_updata();
@@ -26,20 +26,20 @@ void communicate_task(void const * argument)
 * @param[in]      hcan:CAN句柄指针
 * @retval         none
 */
-CAN_RxHeaderTypeDef rx_header;
-uint8_t rx_data[8];
+	CAN_RxHeaderTypeDef rx_header;
+	uint8_t rx_data[8];
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
 
-    HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data);
+	HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data);
     switch (rx_header.StdId)
     {
-        case CAP_ID:
-            get_can_data(rx_data);
-            break;
-        default:
-        {
-            break;
-        }
+		case CAP_ID:
+			get_can_data(rx_data);
+			break;
+    default:
+    {
+			break;
+    }
     }
 }

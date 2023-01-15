@@ -6,9 +6,9 @@
         {                      \
             input = max;       \
         }                      \
-        else if (input < 0)    \
+        else if (input < 150.0)    \
         {                      \
-            input = 1;         \
+            input = 150.0;         \
         }                      \
     }
 
@@ -54,18 +54,13 @@ fp32 Pid_calc(void)
     pid_data.error = *pid_data.set - *pid_data.ref;
     if (pid_mode == PID_SPEED)
         pid_data.error_delta = pid_data.error - pid_data.last_error;
-
-    // if (pid_mode == PID_ANGLE)
-    //     pid_data.error = rad_format(pid_data.error);
-    // pid_data.error_delta = rad_format(pid_data.error - pid_data.last_error);
-
     pid_data.Pout = pid_data.Kp * pid_data.error;
     pid_data.Iout += pid_data.Ki * pid_data.error;
     pid_data.Dout = pid_data.Kd * (pid_data.error_delta);
 
     LimitMax(pid_data.Iout, pid_data.max_iout);
 
-    pid_data.out = pid_data.Pout + pid_data.Iout + pid_data.Dout + (uint16_t)*pid_data.In;
+    pid_data.out = pid_data.Pout + pid_data.Iout + pid_data.Dout + *pid_data.In;
     LimitMax(pid_data.out, pid_data.max_out);
 
     return pid_data.out;

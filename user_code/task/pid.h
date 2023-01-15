@@ -27,7 +27,7 @@ typedef struct
     fp32 error_delta; //微分项,速度环下为error之间的差值,角度环下为陀螺仪角速度值
 
     fp32 out;
-    uint16_t *In; //输入原值进行控制
+    fp32 *In; //输入原值进行控制
     fp32 Pout;
     fp32 Iout;
     fp32 Dout;

@@ -101,7 +101,7 @@ void Cap_Ctrl_Init(void)
     //开启充电
     Cap_Charge_On();
     //关闭升压模块
-    Cap_DisCharge_Off();
+    Cap_DisCharge_On();
     //初始化模式
     cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
     //初始化功率控制
@@ -117,7 +117,7 @@ void Cap_Ctrl_Init(void)
 void Cap_Ctrl(void)
 {
     //获取pid运算结果
-    cap_ctrl_data.duty_cycle = (uint16_t)Pid_calc(); 
+    cap_ctrl_data.duty_cycle = Pid_calc(); 
     //控制充电功率
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
     //计算电容电量
@@ -134,14 +134,31 @@ void Cap_Ctrl(void)
         //开启放电
         Cap_DisCharge_On();
         cap_ctrl_data.CAP_MODE = CAP_MODE_USER_DISCHARGE;
-    }else if(cap_ctrl_data.cap_electricity < CAP_LOW_ELECTRICITY || (cap_data.boom == CAP_MODE_CHARGE && cap_ctrl_data.CAP_MODE == CAP_MODE_USER_DISCHARGE))
+    }
+
+    /*else if(cap_ctrl_data.cap_electricity < CAP_LOW_ELECTRICITY || (cap_data.boom == CAP_MODE_CHARGE && cap_ctrl_data.CAP_MODE == CAP_MODE_USER_DISCHARGE))
     {
         //如果电容电量过低！
         //关闭放电
         Cap_DisCharge_Off();
         cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
-    } 
+    } */
 
+    //自动模式切换
+    if ((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (INA226_Data_cap.BusV > CAP_LOW_V))
+    {
+        //当电容电量足够的时候开启升压模块
+        Cap_DisCharge_On();
+        cap_ctrl_data.CAP_MODE = CAP_MODE_DISCHARGE;
+    } else if((cap_ctrl_data.CAP_MODE == CAP_MODE_DISCHARGE) && (INA226_Data_cap.BusV < CAP_LOW_V))
+    {
+        //当电容电量低的时候关闭升压模块，同时通过can发送数据使底盘降速
+        can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_CHARGE);
+        Cap_DisCharge_Off();
+        cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+    }
+
+    /*
     //模式切换 当处于充电模式并且电容电量变化小于一定值时判断进入自动超电模式
     if ((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (cap_ctrl_data.CAP_SHAKE_DATA < CAP_BAT) && INA226_Data_bus.PowerW > cap_data.power)
     {
@@ -152,7 +169,7 @@ void Cap_Ctrl(void)
         Cap_DisCharge_Off();
         cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
     }
-
+    */
 }
 
 void Power_LED_ctrl(void)
