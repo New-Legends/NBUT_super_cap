@@ -100,12 +100,15 @@ void Cap_Ctrl_Init(void)
 {
     //开启充电
     Cap_Charge_On();
-    //关闭升压模块
-    Cap_DisCharge_On();
+    //开启升压模块
+    Cap_DisCharge_Off();
     //初始化模式
     cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
     //初始化功率控制
-    cap_ctrl_data.duty_cycle = 0;
+    cap_ctrl_data.duty_cycle = 80;
+    //低功率充电
+    __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
+    HAL_Delay(20000);
     //系统初始化完成
     System_LED_Ready();
 }
