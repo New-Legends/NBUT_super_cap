@@ -120,7 +120,8 @@ void Cap_Ctrl_Init(void)
 void Cap_Ctrl(void)
 {
     //获取pid运算结果
-    cap_ctrl_data.duty_cycle = Pid_calc(); 
+    //cap_ctrl_data.duty_cycle = Pid_calc(); 
+	cap_ctrl_data.duty_cycle = 1000;
     //控制充电功率
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
     //计算电容电量

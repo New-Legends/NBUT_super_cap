@@ -210,6 +210,21 @@
           <WinNumber>1</WinNumber>
           <ItemText>pid_data</ItemText>
         </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\NBUT_super_cap\../user_code/task/cap_ctrl.c\cap_ctrl_data.CAP_MODE</ItemText>
+        </Ww>
+        <Ww>
+          <count>13</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\NBUT_super_cap\../user_code/task/cap_ctrl.c\cap_ctrl_data.cap_electricity</ItemText>
+        </Ww>
+        <Ww>
+          <count>14</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>INA226_Data_out</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
@@ -777,7 +792,7 @@
       <GroupNumber>7</GroupNumber>
       <FileNumber>39</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\user_code\task\cap_ctrl.c</PathWithFileName>
