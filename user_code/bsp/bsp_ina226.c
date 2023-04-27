@@ -38,12 +38,12 @@ void INA226_Init(void)
     INA226_setCalibrationReg(&hi2c1, INA226_ADDRESS, INA226_CALIB_REG_DEFAULT);
     INA226_setMaskEnable(&hi2c1, INA226_ADDRESS, INA226_MER_CNVR);
 
-    INA226_setConfig(&hi2c1, OUT_INA226_ADDRESS, 0x4000 | INA226_AVG_1 |  //求平均次数1
+    INA226_setConfig(&hi2c2, OUT_INA226_ADDRESS, 0x4000 | INA226_AVG_1 |  //求平均次数1
                                                  INA226_VBUS_2116uS | //总线电压采集时间2116us
                                                  INA226_VSH_2116uS |  //分流电压采集时间2116us
                                                  INA226_MODE_CONT_SHUNT_AND_BUS);
-    INA226_setCalibrationReg(&hi2c1, OUT_INA226_ADDRESS, INA226_CALIB_REG_DEFAULT);
-    INA226_setMaskEnable(&hi2c1, OUT_INA226_ADDRESS, INA226_MER_CNVR);
+    INA226_setCalibrationReg(&hi2c2, OUT_INA226_ADDRESS, INA226_CALIB_REG_DEFAULT);
+    INA226_setMaskEnable(&hi2c2, OUT_INA226_ADDRESS, INA226_MER_CNVR);
 }
 
 /**
@@ -64,9 +64,9 @@ void INA226_updata(void)
     INA226_Data_cap.PowerW = INA226_getPower(&hi2c2,INA226_ADDRESS);  //着可能是一条无用数据
     INA226_Data_cap.ShuntmA = INA226_getCurrent(&hi2c2,INA226_ADDRESS);
     //超电输出数据获取
-    INA226_Data_out.BusV = 1.25 * INA226_getBusV(&hi2c1, INA226_ADDRESS) / 1000;
-    INA226_Data_out.ShuntmV = 2.5 * INA226_getShuntV(&hi2c1, INA226_ADDRESS) / 1000000;
-    INA226_Data_out.ShuntmA = INA226_getCurrent(&hi2c1,INA226_ADDRESS);
+    INA226_Data_out.BusV = 1.25 * INA226_getBusV(&hi2c2, INA226_ADDRESS) / 1000;
+    INA226_Data_out.ShuntmV = 2.5 * INA226_getShuntV(&hi2c2, INA226_ADDRESS) / 1000000;
+    INA226_Data_out.ShuntmA = INA226_getCurrent(&hi2c2,INA226_ADDRESS);
     //INA226_Data_out.PowerW = (INA226_Data_bus.ShuntmV / 0.005) * INA226_Data_bus.BusV;
     INA226_Data_out.PowerW = INA226_Data_out.ShuntmV * INA226_Data_out.ShuntmA;
 

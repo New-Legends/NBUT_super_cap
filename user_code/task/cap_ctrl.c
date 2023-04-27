@@ -111,6 +111,8 @@ void Cap_Ctrl_Init(void)
     HAL_Delay(20000);
     //系统初始化完成
     System_LED_Ready();
+
+    cap_data.power = 20;
 }
 
 /**
@@ -119,9 +121,10 @@ void Cap_Ctrl_Init(void)
  */
 void Cap_Ctrl(void)
 {
+    Cap_Charge_On();  //测试用例
     //获取pid运算结果
-    //cap_ctrl_data.duty_cycle = Pid_calc(); 
-	cap_ctrl_data.duty_cycle = 1000;
+    cap_ctrl_data.duty_cycle = Pid_calc(); 
+	//cap_ctrl_data.duty_cycle = 1000;
     //控制充电功率
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
     //计算电容电量
@@ -157,9 +160,9 @@ void Cap_Ctrl(void)
     } else if((cap_ctrl_data.CAP_MODE == CAP_MODE_DISCHARGE) && (INA226_Data_cap.BusV < CAP_LOW_V))
     {
         //当电容电量低的时候关闭升压模块，同时通过can发送数据使底盘降速
-        can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_CHARGE);
-        Cap_DisCharge_Off();
-        cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+        //can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_CHARGE);
+        //Cap_DisCharge_Off();
+        //cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
     }
 
     /*
