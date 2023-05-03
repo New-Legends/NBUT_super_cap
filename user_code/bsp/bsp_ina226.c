@@ -12,9 +12,11 @@
 #include "bsp_ina226.h"
 #include "i2c.h"
 #include "can_receive.h"
-
+//总电路
 INA226_Data_t INA226_Data_bus;
+//超电
 INA226_Data_t INA226_Data_cap;
+//超电输出数据获取
 INA226_Data_t INA226_Data_out;
 
 /**
