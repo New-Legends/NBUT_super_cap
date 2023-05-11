@@ -25,12 +25,13 @@
 #define CAP_PID_KD 0.0f
 #define CAP_PID_MAX_IOUT 200.0f
 #define CAP_PID_MAX_OUT 980.0f
+#define CAP_PID_MMAX_OUT 980.0f
 
 //参数设置
 #define CAP_SHAKE 10.0f //抖动电量
 #define CAP_LOW_ELECTRICITY 400.0f //电容低电量
 #define CAP_BAT 0.2f //电容满电电压与电池电压差
-#define CAP_LOW_V 12.2 //电容最低电压
+#define CAP_LOW_V 4.2 //电容最低电压
 
 //模式切换
 #define CAP_MODE_CHARGE 0          //充电模式

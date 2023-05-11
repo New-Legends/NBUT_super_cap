@@ -87,7 +87,7 @@ void Cap_Charge_Off(void)
  */
 void Cap_Pid_Init(void)
 {
-    fp32 cap_pid_parm[5] = {CAP_PID_KP,CAP_PID_KI,CAP_PID_KD,CAP_PID_MAX_IOUT,CAP_PID_MAX_OUT};
+    fp32 cap_pid_parm[6] = {CAP_PID_KP,CAP_PID_KI,CAP_PID_KD,CAP_PID_MAX_IOUT,CAP_PID_MAX_OUT,CAP_PID_MMAX_OUT};
     Pid_Init(PID_SPEED,cap_pid_parm,&INA226_Data_bus.PowerW,&cap_data.power, 0 , &cap_ctrl_data);
     Pid_clear();
 }
@@ -101,16 +101,18 @@ void Cap_Ctrl_Init(void)
     //开启充电
     Cap_Charge_On();
     //开启升压模块
-    Cap_DisCharge_Off();
+    Cap_DisCharge_On();
     //初始化模式
     cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
     //初始化功率控制
-    cap_ctrl_data.duty_cycle = 100;
+    cap_ctrl_data.duty_cycle = 40;
     //低功率充电
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
     HAL_Delay(20000);
     //系统初始化完成
     System_LED_Ready();
+
+    cap_data.power = 20;
 }
 
 /**
@@ -119,7 +121,7 @@ void Cap_Ctrl_Init(void)
  */
 void Cap_Ctrl(void)
 {
-    
+    //Cap_Charge_On();  //测试用例
     //获取pid运算结果
     cap_ctrl_data.duty_cycle = Pid_calc(); 
 	//cap_ctrl_data.duty_cycle = 1000;
@@ -150,20 +152,25 @@ void Cap_Ctrl(void)
     // } 
 
     //自动模式切换
-    if ((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (INA226_Data_cap.BusV > CAP_LOW_V))
-    {
-        //当电容电量足够的时候开启升压模块
-       // Cap_Charge_Off();
-        Cap_DisCharge_On();
-        cap_ctrl_data.CAP_MODE = CAP_MODE_DISCHARGE;
-    } else if((cap_ctrl_data.CAP_MODE == CAP_MODE_DISCHARGE) && (INA226_Data_cap.BusV < CAP_LOW_V))
-    {
-        //当电容电量低的时候关闭升压模块，同时通过can发送数据使底盘降速
-        //Cap_Charge_On();
-        can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_CHARGE);
-        Cap_DisCharge_Off();
-        cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
-    }
+    // if ((cap_ctrl_data.CAP_MODE == CAP_MODE_CHARGE) && (INA226_Data_cap.BusV > INA226_Data_bus.BusV - 1.0))
+    // {
+    //     //当电容电量足够的时候开启升压模块
+    //     //Cap_Charge_Off();
+    //     Cap_DisCharge_On();
+    //     cap_ctrl_data.CAP_MODE = CAP_MODE_DISCHARGE;
+    // } else if((cap_ctrl_data.CAP_MODE == CAP_MODE_DISCHARGE) && (INA226_Data_cap.BusV < 13.0))
+    // {
+    //     Cap_Charge_On();
+    //     //当电容电量低的时候关闭升压模块，同时通过can发送数据使底盘降速
+    //     //can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_CHARGE);
+    //     //Cap_DisCharge_Off();
+    //     //cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
+    // }
+    // else
+    // {
+    //     Cap_Charge_On();
+    //     Cap_DisCharge_On();
+    // }
 
     /*
     //模式切换 当处于充电模式并且电容电量变化小于一定值时判断进入自动超电模式
@@ -181,7 +188,7 @@ void Cap_Ctrl(void)
 
 void Power_LED_ctrl(void)
 {
-    if(INA226_Data_cap.BusV > 20)
+    if(INA226_Data_cap.BusV > INA226_Data_bus.BusV - 1.0)
     {
         Cap_Electricity_LED_High();
     }else if (INA226_Data_cap.BusV <12)

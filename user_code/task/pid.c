@@ -6,9 +6,9 @@
         {                      \
             input = max;       \
         }                      \
-        else if (input < 150.0)    \
+        else if (input < 1.0)    \
         {                      \
-            input = 150.0;         \
+            input = 1.0;         \
         }                      \
     }
 
