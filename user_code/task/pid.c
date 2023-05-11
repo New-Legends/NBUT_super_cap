@@ -32,10 +32,11 @@ void Pid_Init(uint8_t mode_, const fp32 *pid_parm, fp32 *ref_, fp32 *set_, fp32 
     pid_data.Kd = pid_parm[2];
     pid_data.max_iout = pid_parm[3];
     pid_data.max_out = pid_parm[4];
+    pid_data.Max_out = pid_parm[5];
 
     pid_data.set = set_;
     pid_data.ref = ref_;
-    pid_data.error = *set_ - *ref_;
+    pid_data.error = (*set_ - *ref_);
 
     pid_data.In = &(IN->duty_cycle);
 
@@ -61,8 +62,13 @@ fp32 Pid_calc(void)
     //LimitMax(pid_data.Iout, pid_data.max_iout);
 
     pid_data.out = pid_data.Pout + pid_data.Iout + pid_data.Dout + pid_data.In[0]*1.0;
-    LimitMax(pid_data.out, pid_data.max_out);
-
+    if(INA226_Data_bus.BusV < 15)
+    {
+        LimitMax(pid_data.out, pid_data.Max_out);
+    }else
+    {
+        LimitMax(pid_data.out, pid_data.max_out);
+    }
     return pid_data.out;
 }
 

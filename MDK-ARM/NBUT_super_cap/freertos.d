@@ -1,7 +1,7 @@
 nbut_super_cap\freertos.o: ../Core/Src/freertos.c
 nbut_super_cap\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-nbut_super_cap\freertos.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-nbut_super_cap\freertos.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+nbut_super_cap\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+nbut_super_cap\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 nbut_super_cap\freertos.o: ../Core/Inc/FreeRTOSConfig.h
 nbut_super_cap\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 nbut_super_cap\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

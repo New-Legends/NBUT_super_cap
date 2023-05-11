@@ -16,7 +16,8 @@ typedef struct
     fp32 Kd;
 
     fp32 max_iout; //最大积分输出
-    fp32 max_out;  //最大输出
+    fp32 max_out;  //较大的最大输出
+    fp32 Max_out;  //较小的最大输出
 
 
     fp32 *set;
