@@ -57,7 +57,7 @@ void can_cmd_cap_data(uint16_t bat_v,uint16_t cap_energy,uint8_t boom)
  */
 void get_can_data(uint8_t data[8])
 {
-    cap_data.power = (uint16_t)(data[0] << 8 | data[1])*1.0;
+    cap_data.power = (uint16_t)(data[0] << 8 | data[1]) * 1.0;
     cap_data.power_buffer = (uint16_t)(data[2] << 8 | data[3]);
     cap_data.boom = data[4];
 }

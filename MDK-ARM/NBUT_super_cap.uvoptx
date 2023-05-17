@@ -203,7 +203,7 @@
         <Ww>
           <count>9</count>
           <WinNumber>1</WinNumber>
-          <ItemText>cap_data</ItemText>
+          <ItemText>cap_data,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>10</count>
@@ -229,6 +229,16 @@
           <count>14</count>
           <WinNumber>1</WinNumber>
           <ItemText>INA226_Data_out</ItemText>
+        </Ww>
+        <Ww>
+          <count>15</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ReceivedTable</ItemText>
+        </Ww>
+        <Ww>
+          <count>16</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\NBUT_super_cap\../user_code/task/pid.c\pid_data</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>

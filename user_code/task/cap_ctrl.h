@@ -42,10 +42,11 @@
 typedef struct 
 {
     fp32 duty_cycle; //充电占空比
-    fp32 cap_electricity; // 电容电量
+    float cap_electricity; // 电容电量
     fp32 last_cap_electricity; //上一次电容容量
     fp32 CAP_SHAKE_DATA;       //电容电量抖动
     uint8_t CAP_MODE;      //电容模式
+    float residue_electricity;//超电剩余电量百分比
 }cap_ctrl_data_t;
 
 extern cap_ctrl_data_t cap_ctrl_data;

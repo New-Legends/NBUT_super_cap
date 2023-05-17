@@ -105,14 +105,14 @@ void Cap_Ctrl_Init(void)
     //初始化模式
     cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
     //初始化功率控制
-    cap_ctrl_data.duty_cycle = 40;
+    cap_ctrl_data.duty_cycle = 80;
     //低功率充电
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
     HAL_Delay(20000);
     //系统初始化完成
     System_LED_Ready();
 
-    cap_data.power = 20;
+    cap_data.power = 80;
 }
 
 /**
@@ -133,6 +133,8 @@ void Cap_Ctrl(void)
     cap_ctrl_data.CAP_SHAKE_DATA = abs(cap_ctrl_data.cap_electricity - cap_ctrl_data.last_cap_electricity);
     //赋值上一次的电量
     cap_ctrl_data.last_cap_electricity = cap_ctrl_data.cap_electricity;
+    //计算剩余电源电量百分比
+    cap_ctrl_data.residue_electricity = ((INA226_Data_cap.BusV - 12.0) / (INA226_Data_bus.BusV - 12.0) * 100);
 
     //手动模式切换
     // if((cap_data.boom == CAP_MODE_USER_DISCHARGE) && (cap_ctrl_data.cap_electricity > CAP_LOW_ELECTRICITY))
@@ -191,7 +193,7 @@ void Power_LED_ctrl(void)
     if(INA226_Data_cap.BusV > INA226_Data_bus.BusV - 1.0)
     {
         Cap_Electricity_LED_High();
-    }else if (INA226_Data_cap.BusV <12)
+    }else if (INA226_Data_cap.BusV < 12.0)
     {
         Cap_Electricity_LED_Low();
     }else

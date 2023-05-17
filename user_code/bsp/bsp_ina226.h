@@ -125,7 +125,8 @@ typedef struct
 	double BusV;//---总线电压，单位毫伏
 	double ShuntmV;//---采样电阻电压,单位微伏
 	double ShuntmA;//---采样电阻电流，单位安      算出来的
-	fp32 PowerW;//---负载的功耗，单位瓦          算出来的
+	fp32 PowerW;//---负载的功耗，单位瓦 
+	double PowerW2;  // 不知道怎么来的         算出来的
 	//uint16_t Power_pid;
 } INA226_Data_t;
 
