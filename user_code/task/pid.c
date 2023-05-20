@@ -58,9 +58,7 @@ fp32 Pid_calc(void)
     pid_data.Pout = pid_data.Kp * pid_data.error;
     pid_data.Iout += pid_data.Ki * pid_data.error;
     pid_data.Dout = pid_data.Kd * (pid_data.error_delta);
-
-    //LimitMax(pid_data.Iout, pid_data.max_iout);
-
+    
     pid_data.out = pid_data.Pout + pid_data.Iout + pid_data.Dout + pid_data.In[0]*1.0;
     if(INA226_Data_bus.BusV < 15)
     {

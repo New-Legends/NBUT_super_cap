@@ -20,6 +20,7 @@ extern CAN_HandleTypeDef hcan;
 
 #define CAP_CAN hcan
 #define CAP_ID 0x401
+#define CAP_POWER_ID 0x402
 
 //超电--控制板数据(BOOM 代表爆炸)
 typedef struct 
@@ -37,8 +38,23 @@ extern cap_data_t cap_data;
 //初始化函数
 void can_Init(void);
 
-//发送函数
+/**
+ * @brief 基础数据发送函数
+ * 
+ * @param bat_v 
+ * @param cap_energy 
+ * @param boom 
+ * @param bus_v 
+ */
 void can_cmd_cap_data(uint16_t bat_v,uint16_t cap_energy,uint8_t boom,uint16_t bus_v);
+
+/**
+ * @brief 功率发送函数
+ * 
+ * @param bat_power 
+ * @param boot_out_power 
+ */
+void can_cmd_cap_data_power(uint16_t bat_power,uint16_t boot_out_power);
 
 //接收函数
 void get_can_data(uint8_t data[8]);
