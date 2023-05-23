@@ -1,8 +1,8 @@
 nbut_super_cap\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
-nbut_super_cap\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+nbut_super_cap\event_groups.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 nbut_super_cap\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-nbut_super_cap\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-nbut_super_cap\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+nbut_super_cap\event_groups.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+nbut_super_cap\event_groups.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 nbut_super_cap\event_groups.o: ../Core/Inc/FreeRTOSConfig.h
 nbut_super_cap\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 nbut_super_cap\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

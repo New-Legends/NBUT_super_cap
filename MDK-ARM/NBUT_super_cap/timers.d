@@ -1,8 +1,8 @@
 nbut_super_cap\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
-nbut_super_cap\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+nbut_super_cap\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 nbut_super_cap\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-nbut_super_cap\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-nbut_super_cap\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+nbut_super_cap\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+nbut_super_cap\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 nbut_super_cap\timers.o: ../Core/Inc/FreeRTOSConfig.h
 nbut_super_cap\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 nbut_super_cap\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

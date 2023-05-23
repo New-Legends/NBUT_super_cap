@@ -60,7 +60,7 @@ void can_cmd_cap_data(uint16_t cap_v,uint16_t cap_energy,uint8_t boom,uint16_t b
 void can_cmd_cap_data_power(uint16_t bat_power,uint16_t boot_out_power)
 {
     uint32_t send_mail_box;
-    can_tx_message.StdId = CAP_ID;
+    can_tx_message.StdId = CAP_POWER_ID;
     can_tx_message.IDE = CAN_ID_STD;
     can_tx_message.RTR = CAN_RTR_DATA;
     can_tx_message.DLC = 0x08;
