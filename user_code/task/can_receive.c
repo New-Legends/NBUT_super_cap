@@ -27,50 +27,25 @@ uint8_t can_send_data[8];
 /**
  * @brief 超电控制板can发送函数
  * 
- * @param cap_v 电容电压
+ * @param bat_v 电容电压
  * @param cap_energy 超电剩余电能
  * @param boom 超电状态
  * @param bus_v 电池电压
  */
-void can_cmd_cap_data(uint16_t cap_v,uint16_t cap_energy,uint8_t boom,uint16_t bus_v)
+void can_cmd_cap_data(uint16_t bat_v,uint16_t cap_energy,uint8_t boom,uint16_t bus_v)
 {
     uint32_t send_mail_box;
     can_tx_message.StdId = CAP_ID;
     can_tx_message.IDE = CAN_ID_STD;
     can_tx_message.RTR = CAN_RTR_DATA;
     can_tx_message.DLC = 0x08;
-    can_send_data[0] = cap_v >> 8;
-    can_send_data[1] = cap_v;
+    can_send_data[0] = bat_v >> 8;
+    can_send_data[1] = bat_v;
     can_send_data[2] = cap_energy >> 8;
     can_send_data[3] = cap_energy;
     can_send_data[4] = boom;
     can_send_data[5] = bus_v >> 8;
     can_send_data[6] = bus_v;
-    can_send_data[7] = 0;
-
-    HAL_CAN_AddTxMessage(&CAP_CAN, &can_tx_message, can_send_data, &send_mail_box);
-}
-
-/**
- * @brief 功率发送函数
- * 
- * @param bat_power 
- * @param boot_out_power 
- */
-void can_cmd_cap_data_power(uint16_t bat_power,uint16_t boot_out_power)
-{
-    uint32_t send_mail_box;
-    can_tx_message.StdId = CAP_ID;
-    can_tx_message.IDE = CAN_ID_STD;
-    can_tx_message.RTR = CAN_RTR_DATA;
-    can_tx_message.DLC = 0x08;
-    can_send_data[0] = bat_power >> 8;
-    can_send_data[1] = bat_power;
-    can_send_data[2] = boot_out_power >> 8;
-    can_send_data[3] = boot_out_power;
-    can_send_data[4] = 0;
-    can_send_data[5] = 0;
-    can_send_data[6] = 0;
     can_send_data[7] = 0;
 
     HAL_CAN_AddTxMessage(&CAP_CAN, &can_tx_message, can_send_data, &send_mail_box);

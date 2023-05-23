@@ -18,7 +18,6 @@ void communicate_task(void const * argument)
     {
     INA226_updata();
     can_cmd_cap_data((uint16_t)(INA226_Data_cap.BusV * 100),(uint16_t)(cap_ctrl_data.residue_electricity * 100),cap_ctrl_data.CAP_MODE,(uint16_t)(INA226_Data_bus.BusV * 100));
-    can_cmd_cap_data_power((uint16_t)(INA226_Data_bus.PowerW*100),(uint16_t)(INA226_Data_out.PowerW*100));
     }
 }
 
