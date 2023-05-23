@@ -10,6 +10,7 @@
  */
 #include "cap_ctrl.h"
 #include "pid.h"
+#include "task.h"
 
 cap_ctrl_data_t cap_ctrl_data;
 
@@ -133,6 +134,12 @@ void Cap_Ctrl(void)
     cap_ctrl_data.last_cap_electricity = cap_ctrl_data.cap_electricity;
     //计算剩余电源电量百分比
     cap_ctrl_data.residue_electricity = ((INA226_Data_cap.BusV - CAP_LOW_V) / (INA226_Data_bus.BusV - CAP_LOW_V) * 100);
+    //输出功率大于210W时关闭升压模块
+    if(INA226_Data_out.PowerW > 210)
+    {
+        vTaskDelay(3500);
+        Cap_DisCharge_Off;
+    }
 
     //手动模式切换
     // if((cap_data.boom == CAP_MODE_USER_DISCHARGE) && (cap_ctrl_data.cap_electricity > CAP_LOW_ELECTRICITY))
