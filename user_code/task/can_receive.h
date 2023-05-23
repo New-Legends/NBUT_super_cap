@@ -20,6 +20,7 @@ extern CAN_HandleTypeDef hcan;
 
 #define CAP_CAN hcan
 #define CAP_ID 0x401
+#define CAP_POWER_ID 0x402
 
 //超电--控制板数据(BOOM 代表爆炸)
 typedef struct 
