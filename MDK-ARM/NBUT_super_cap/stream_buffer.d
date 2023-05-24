@@ -1,8 +1,8 @@
 nbut_super_cap\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
-nbut_super_cap\stream_buffer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-nbut_super_cap\stream_buffer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+nbut_super_cap\stream_buffer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+nbut_super_cap\stream_buffer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 nbut_super_cap\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-nbut_super_cap\stream_buffer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+nbut_super_cap\stream_buffer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 nbut_super_cap\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
 nbut_super_cap\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 nbut_super_cap\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
