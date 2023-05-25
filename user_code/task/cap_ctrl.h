@@ -20,11 +20,11 @@
 #include "struct_typedef.h"
 
 //充电pid
-#define CAP_PID_KP 0.01f
+#define CAP_PID_KP 0.008f
 #define CAP_PID_KI 0.0f
 #define CAP_PID_KD 0.0f
 #define CAP_PID_MAX_IOUT 200.0f
-#define CAP_PID_MAX_OUT 980.0f
+#define CAP_PID_MAX_OUT 500.0f
 #define CAP_PID_MMAX_OUT 980.0f
 
 //参数设置

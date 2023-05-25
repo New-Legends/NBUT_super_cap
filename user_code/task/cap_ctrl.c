@@ -111,7 +111,6 @@ void Cap_Ctrl_Init(void)
     HAL_Delay(20000);
     //系统初始化完成
     System_LED_Ready();
-
     cap_data.power = 80;
 }
 
@@ -123,8 +122,14 @@ void Cap_Ctrl(void)
 {
     //Cap_Charge_On();  //测试用例
     //获取pid运算结果
+    if(INA226_Data_cap.BusV > 17)
+    {
     cap_ctrl_data.duty_cycle = Pid_calc(); 
-	//cap_ctrl_data.duty_cycle = 1000;
+    }
+    else
+    {
+        cap_ctrl_data.duty_cycle = 50;
+    }
     //控制充电功率
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
     //计算电容电量
