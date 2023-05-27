@@ -41,6 +41,15 @@ void can_Init(void);
 //发送函数
 void can_cmd_cap_data(uint16_t bat_v,uint16_t cap_energy,uint8_t boom,uint16_t bus_v);
 
+/**
+ * @brief 
+ * 
+ *
+ * 
+ * @param bat_power 
+ * @param boot_out_power 
+ */
+void can_cmd_cap_data_power(uint16_t bat_power,uint16_t boot_out_power);
 //接收函数
 void get_can_data(uint8_t data[8]);
 

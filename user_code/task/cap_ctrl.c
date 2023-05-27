@@ -120,15 +120,14 @@ void Cap_Ctrl_Init(void)
  */
 void Cap_Ctrl(void)
 {
-    //Cap_Charge_On();  //测试用例
     //获取pid运算结果
-    if(INA226_Data_cap.BusV > 17)
+    if((INA226_Data_cap.BusV > 16) || (cap_data.boom == CAP_MODE_CHARGE))
     {
     cap_ctrl_data.duty_cycle = Pid_calc(); 
     }
     else
     {
-        cap_ctrl_data.duty_cycle = 50;
+        cap_ctrl_data.duty_cycle = 80;
     }
     //控制充电功率
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
@@ -142,14 +141,15 @@ void Cap_Ctrl(void)
     cap_ctrl_data.residue_electricity = ((INA226_Data_cap.BusV - CAP_LOW_V) / (INA226_Data_bus.BusV - CAP_LOW_V) * 100);
 
     //手动模式切换
-    // if((cap_data.boom == CAP_MODE_USER_DISCHARGE) && (cap_ctrl_data.cap_electricity > CAP_LOW_ELECTRICITY))
-    // {
-    //     can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_USER_DISCHARGE);
-    //     //开启放电
-    //     Cap_DisCharge_On();
-    //     cap_ctrl_data.CAP_MODE = CAP_MODE_USER_DISCHARGE;
-    // }
+    if(cap_data.boom == CAP_MODE_DISCHARGE)
+    {
+        Cap_DisCharge_On();//开启超级电容
+    }
 
+    if(cap_data.boom == CAP_MODE_CHARGE)
+    {
+        Cap_DisCharge_Off();//关闭超级电容
+    }
     // else if(cap_ctrl_data.cap_electricity <= CAP_LOW_ELECTRICITY || (cap_data.boom == CAP_MODE_CHARGE && cap_ctrl_data.CAP_MODE == CAP_MODE_USER_DISCHARGE))
     // {
     //     // 如果电容电量过低！
