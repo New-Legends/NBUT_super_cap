@@ -19,6 +19,9 @@ cap_data_t cap_data;
 void can_Init()
 {
     can_filter_init();
+    cap_data.power = 80;//(uint16_t)(data[0] << 8 | data[1]) * 1.0;
+    //cap_data.power_buffer = (uint16_t)(data[2] << 8 | data[3]);
+    cap_data.boom = 1;//data[4];
 }
 
 CAN_TxHeaderTypeDef can_tx_message;
@@ -83,7 +86,7 @@ void can_cmd_cap_data_power(uint16_t bat_power,uint16_t boot_out_power)
  */
 void get_can_data(uint8_t data[8])
 {
-    cap_data.power = (uint16_t)(data[0] << 8 | data[1]) * 1.0;
-    cap_data.power_buffer = (uint16_t)(data[2] << 8 | data[3]);
-    cap_data.boom = data[4];
+    cap_data.power = 80;//(uint16_t)(data[0] << 8 | data[1]) * 1.0;
+    //cap_data.power_buffer = (uint16_t)(data[2] << 8 | data[3]);
+    cap_data.boom = 1;//data[4];
 }
