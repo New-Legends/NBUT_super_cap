@@ -10,7 +10,6 @@
  */
 #include "cap_ctrl.h"
 #include "pid.h"
-#include "task.h"
 
 cap_ctrl_data_t cap_ctrl_data;
 
@@ -89,7 +88,9 @@ void Cap_Charge_Off(void)
 void Cap_Pid_Init(void)
 {
     fp32 cap_pid_parm[6] = {CAP_PID_KP,CAP_PID_KI,CAP_PID_KD,CAP_PID_MAX_IOUT,CAP_PID_MAX_OUT,CAP_PID_MMAX_OUT};
-    Pid_Init(PID_SPEED,cap_pid_parm,&INA226_Data_bus.PowerW,&cap_data.power, 0 , &cap_ctrl_data);
+    //Pid_Init(PID_SPEED,cap_pid_parm,&INA226_Data_bus.PowerW,&cap_data.power, 0 , &cap_ctrl_data);
+    //待测试
+    Pid_Init(PID_SPEED,cap_pid_parm,&INA226_Data_cap.PowerW,&cap_data.power, 0 , &cap_ctrl_data);
     Pid_clear();
 }
 
@@ -112,7 +113,6 @@ void Cap_Ctrl_Init(void)
     HAL_Delay(20000);
     //系统初始化完成
     System_LED_Ready();
-
     cap_data.power = 80;
 }
 
@@ -123,7 +123,14 @@ void Cap_Ctrl_Init(void)
 void Cap_Ctrl(void)
 {
     //获取pid运算结果
+    if((INA226_Data_cap.BusV > 16) || (cap_data.boom == CAP_MODE_CHARGE))
+    {
     cap_ctrl_data.duty_cycle = Pid_calc(); 
+    }
+    else
+    {
+        cap_ctrl_data.duty_cycle = 80;
+    }
     //控制充电功率
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
     //计算电容电量
@@ -134,22 +141,27 @@ void Cap_Ctrl(void)
     cap_ctrl_data.last_cap_electricity = cap_ctrl_data.cap_electricity;
     //计算剩余电源电量百分比
     cap_ctrl_data.residue_electricity = ((INA226_Data_cap.BusV - CAP_LOW_V) / (INA226_Data_bus.BusV - CAP_LOW_V) * 100);
-    //输出功率大于210W时关闭升压模块
-    // if(INA226_Data_out.PowerW > 210)
-    // {
-    //     vTaskDelay(3500);
-    //     Cap_DisCharge_Off;
-    // }
+
+
+    //计算超电可用的功率（待测试）
+    cap_data.chassis_power = INA226_Data_bus.PowerW - INA226_Data_cap.PowerW;
+    cap_data.power = (cap_data.limit_power - cap_data.chassis_power) / 2;
+    if(cap_data.power <= 0)
+    {
+        cap_data.power = 0;
+        cap_ctrl_data.duty_cycle = 80;
+    }
 
     //手动模式切换
-    // if((cap_data.boom == CAP_MODE_USER_DISCHARGE) && (cap_ctrl_data.cap_electricity > CAP_LOW_ELECTRICITY))
-    // {
-    //     can_cmd_cap_data(INA226_Data_bus.BusV,cap_ctrl_data.cap_electricity,CAP_MODE_USER_DISCHARGE);
-    //     //开启放电
-    //     Cap_DisCharge_On();
-    //     cap_ctrl_data.CAP_MODE = CAP_MODE_USER_DISCHARGE;
-    // }
+    if(cap_data.boom == CAP_MODE_DISCHARGE)
+    {
+        Cap_DisCharge_On();//开启超级电容
+    }
 
+    if(cap_data.boom == CAP_MODE_CHARGE)
+    {
+        Cap_DisCharge_Off();//关闭超级电容
+    }
     // else if(cap_ctrl_data.cap_electricity <= CAP_LOW_ELECTRICITY || (cap_data.boom == CAP_MODE_CHARGE && cap_ctrl_data.CAP_MODE == CAP_MODE_USER_DISCHARGE))
     // {
     //     // 如果电容电量过低！

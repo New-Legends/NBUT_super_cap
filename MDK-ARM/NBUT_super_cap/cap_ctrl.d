@@ -46,5 +46,3 @@ nbut_super_cap\cap_ctrl.o: ..\user_code\task\can_receive.h
 nbut_super_cap\cap_ctrl.o: ../Core/Inc/can.h
 nbut_super_cap\cap_ctrl.o: ../user_code/bsp/bsp_can.h
 nbut_super_cap\cap_ctrl.o: ..\user_code\task\pid.h
-nbut_super_cap\cap_ctrl.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
-nbut_super_cap\cap_ctrl.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

@@ -133,7 +133,6 @@ typedef struct
 extern INA226_Data_t INA226_Data_bus;
 extern INA226_Data_t INA226_Data_cap;
 extern INA226_Data_t INA226_Data_out;
-
 void INA226_Init(void);
 void INA226_updata(void);
 

@@ -31,6 +31,8 @@ typedef struct
     uint8_t boom;//是否开启超电
     uint16_t bat_v;//电池电压
     uint16_t cap_energy;//电容剩余的能量
+    fp32 limit_power;//底盘功率限制
+    fp32 chassis_power//底盘功率
 }cap_data_t;
 
 extern cap_data_t cap_data;
@@ -41,6 +43,15 @@ void can_Init(void);
 //发送函数
 void can_cmd_cap_data(uint16_t bat_v,uint16_t cap_energy,uint8_t boom,uint16_t bus_v);
 
+/**
+ * @brief 
+ * 
+ *
+ * 
+ * @param bat_power 
+ * @param boot_out_power 
+ */
+void can_cmd_cap_data_power(uint16_t bat_power,uint16_t boot_out_power);
 //接收函数
 void get_can_data(uint8_t data[8]);
 

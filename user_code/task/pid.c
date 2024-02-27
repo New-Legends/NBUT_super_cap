@@ -62,12 +62,13 @@ fp32 Pid_calc(void)
     //LimitMax(pid_data.Iout, pid_data.max_iout);
 
     pid_data.out = pid_data.Pout + pid_data.Iout + pid_data.Dout + pid_data.In[0]*1.0;
-    if(INA226_Data_bus.BusV < 15)
+    if(INA226_Data_bus.BusV > 17)
     {
         LimitMax(pid_data.out, pid_data.Max_out);
     }else
     {
-        LimitMax(pid_data.out, pid_data.max_out);
+        //LimitMax(pid_data.out, pid_data.max_out);
+        pid_data.out = 50;
     }
     return pid_data.out;
 }
