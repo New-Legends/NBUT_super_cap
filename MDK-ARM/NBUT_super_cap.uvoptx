@@ -245,16 +245,6 @@
           <WinNumber>1</WinNumber>
           <ItemText>rx_header.StdId,0x10</ItemText>
         </Ww>
-        <Ww>
-          <count>18</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>\\NBUT_super_cap\../user_code/bsp/bsp_ina226.c\INA226_Data_cap.BusV</ItemText>
-        </Ww>
-        <Ww>
-          <count>19</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>can_receive</ItemText>
-        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>

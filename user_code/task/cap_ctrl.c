@@ -12,6 +12,7 @@
 #include "pid.h"
 
 cap_ctrl_data_t cap_ctrl_data;
+fp32 ratio = 0.85;
 
 void cap_ctrl_task(void const * argument)
 {
@@ -103,16 +104,25 @@ void Cap_Ctrl_Init(void)
     //开启充电
     Cap_Charge_On();
     //开启升压模块
+    cap_data.boom = CAP_MODE_DISCHARGE;
     Cap_DisCharge_On();
     //初始化模式
     cap_ctrl_data.CAP_MODE = CAP_MODE_CHARGE;
     //初始化功率控制
-    cap_ctrl_data.duty_cycle = 80;
+    if (INA226_Data_cap.BusV > 7)
+    {
+        cap_ctrl_data.duty_cycle = 80;
+    }
+    else
+    {
+        cap_ctrl_data.duty_cycle = 40;
+    }
     //低功率充电
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
     HAL_Delay(20000);
     //系统初始化完成
     System_LED_Ready();
+    cap_data.limit_power = 80;
     cap_data.power = 80;
 }
 
@@ -123,13 +133,28 @@ void Cap_Ctrl_Init(void)
 void Cap_Ctrl(void)
 {
     //获取pid运算结果
-    if((INA226_Data_cap.BusV > 16) || (cap_data.boom == CAP_MODE_CHARGE))
+    if((INA226_Data_cap.BusV > 14.5) || (cap_data.boom == CAP_MODE_CHARGE))
     {
-    cap_ctrl_data.duty_cycle = Pid_calc(); 
+        cap_ctrl_data.duty_cycle = Pid_calc(); 
+        ratio = 0.9;
+    }
+    else if((INA226_Data_cap.BusV > 12.5) || (cap_data.boom == CAP_MODE_CHARGE))
+    {
+        cap_ctrl_data.duty_cycle = Pid_calc(); 
+        ratio = 0.7;
+    }
+    else if((INA226_Data_cap.BusV > 8) || (cap_data.boom == CAP_MODE_CHARGE))
+    {
+        cap_ctrl_data.duty_cycle = Pid_calc();
+        ratio = 0.4;
+    }
+    else if((INA226_Data_cap.BusV > 7) || (cap_data.boom == CAP_MODE_CHARGE))
+    {
+        cap_ctrl_data.duty_cycle = 80;
     }
     else
     {
-        cap_ctrl_data.duty_cycle = 80;
+        cap_ctrl_data.duty_cycle = 40;
     }
     //控制充电功率
     __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,cap_ctrl_data.duty_cycle);
@@ -145,7 +170,7 @@ void Cap_Ctrl(void)
 
     //计算超电可用的功率（待测试）
     cap_data.chassis_power = INA226_Data_bus.PowerW - INA226_Data_cap.PowerW;
-    cap_data.power = (cap_data.limit_power - cap_data.chassis_power) / 2;
+    cap_data.power = (cap_data.limit_power - cap_data.chassis_power) * ratio;
     if(cap_data.power <= 0)
     {
         cap_data.power = 0;
@@ -210,7 +235,7 @@ void Power_LED_ctrl(void)
     if(INA226_Data_cap.BusV > INA226_Data_bus.BusV - 1.0)
     {
         Cap_Electricity_LED_High();
-    }else if (INA226_Data_cap.BusV < 12.0)
+    }else if (INA226_Data_cap.BusV <= 5.5)
     {
         Cap_Electricity_LED_Low();
     }else

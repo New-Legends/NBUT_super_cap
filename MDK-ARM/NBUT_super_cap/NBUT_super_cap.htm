@@ -3,7 +3,7 @@
 <title>Static Call Graph - [NBUT_super_cap\NBUT_super_cap.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image NBUT_super_cap\NBUT_super_cap.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jan 24 16:00:51 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Mar 08 18:51:48 2024
 <BR><P>
 <H3>Maximum Stack Usage =        232 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -372,7 +372,7 @@ Global Symbols
 <P><STRONG><a name="[6e]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Pid_Init
 </UL>
 
@@ -382,10 +382,10 @@ Global Symbols
 
 <P><STRONG><a name="[15d]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[e9]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
+<P><STRONG><a name="[ea]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
@@ -455,7 +455,7 @@ Global Symbols
 <P><STRONG><a name="[54]"></a>Cap_Charge_LED_Off</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, bsp_led.o(i.Cap_Charge_LED_Off))
 <BR><BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 </UL>
 
 <P><STRONG><a name="[56]"></a>Cap_Charge_LED_On</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, bsp_led.o(i.Cap_Charge_LED_On))
@@ -474,14 +474,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl_Init
 </UL>
 
-<P><STRONG><a name="[58]"></a>Cap_Ctrl</STRONG> (Thumb, 242 bytes, Stack size 40 bytes, cap_ctrl.o(i.Cap_Ctrl))
+<P><STRONG><a name="[58]"></a>Cap_Ctrl</STRONG> (Thumb, 346 bytes, Stack size 40 bytes, cap_ctrl.o(i.Cap_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = Cap_Ctrl &rArr; Pid_calc &rArr; __aeabi_fmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid_calc
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abs
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_DisCharge_On
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_DisCharge_Off
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
@@ -493,13 +493,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cap_ctrl_task
 </UL>
 
-<P><STRONG><a name="[65]"></a>Cap_Ctrl_Init</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, cap_ctrl.o(i.Cap_Ctrl_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Cap_Ctrl_Init &rArr; HAL_Delay
+<P><STRONG><a name="[65]"></a>Cap_Ctrl_Init</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, cap_ctrl.o(i.Cap_Ctrl_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Cap_Ctrl_Init &rArr; HAL_Delay
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_LED_Ready
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_DisCharge_On
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Charge_On
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cap_ctrl_task
 </UL>
@@ -507,7 +509,7 @@ Global Symbols
 <P><STRONG><a name="[68]"></a>Cap_DisCharge_LED_Off</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, bsp_led.o(i.Cap_DisCharge_LED_Off))
 <BR><BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_DisCharge_Off
 </UL>
 
@@ -549,7 +551,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Power_LED_ctrl
 </UL>
 
@@ -574,11 +576,11 @@ Global Symbols
 <P><STRONG><a name="[a]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[e2]"></a>Error_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
-<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C2_Init
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN_Init
+<P><STRONG><a name="[e3]"></a>Error_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
+<BR><BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C2_Init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN_Init
 </UL>
 
 <P><STRONG><a name="[fa]"></a>HAL_CAN_ActivateNotification</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, stm32f1xx_hal_can.o(i.HAL_CAN_ActivateNotification))
@@ -635,7 +637,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN_Init
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN_Init
 </UL>
 
 <P><STRONG><a name="[7f]"></a>HAL_CAN_MspInit</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, can.o(i.HAL_CAN_MspInit))
@@ -734,13 +736,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_MspInit
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
 <P><STRONG><a name="[55]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_WritePin))
-<BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Charge_LED_On
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_LED_UnReady
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_LED_UnReady
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_LED_Ready
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Electricity_LED_Normal
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Electricity_LED_Low
@@ -808,8 +810,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_MspInit
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C2_Init
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C2_Init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
 </UL>
 
 <P><STRONG><a name="[c6]"></a>HAL_I2C_ListenCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_i2c.o(i.HAL_I2C_ListenCpltCallback))
@@ -835,8 +837,8 @@ Global Symbols
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterRequestRead
 </UL>
-<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getShuntV
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPowerReg
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getShuntV
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPowerReg
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getCurrentReg
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getBusVReg
 </UL>
@@ -853,8 +855,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_setMaskEnable
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_setConfig
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_setCalibrationReg
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getShuntV
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPowerReg
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getShuntV
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPowerReg
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getCurrentReg
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getBusVReg
 </UL>
@@ -987,10 +989,10 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
 
-<P><STRONG><a name="[ea]"></a>HAL_TIMEx_MasterConfigSynchronization</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, stm32f1xx_hal_tim_ex.o(i.HAL_TIMEx_MasterConfigSynchronization))
+<P><STRONG><a name="[eb]"></a>HAL_TIMEx_MasterConfigSynchronization</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, stm32f1xx_hal_tim_ex.o(i.HAL_TIMEx_MasterConfigSynchronization))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_TIMEx_MasterConfigSynchronization
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 </UL>
 
 <P><STRONG><a name="[a7]"></a>HAL_TIM_Base_Init</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, stm32f1xx_hal_tim.o(i.HAL_TIM_Base_Init))
@@ -999,7 +1001,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_MspInit
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Base_SetConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 </UL>
 
 <P><STRONG><a name="[a8]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_Base_MspInit))
@@ -1023,7 +1025,7 @@ Global Symbols
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITRx_SetConfig
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETR_SetConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 </UL>
 
 <P><STRONG><a name="[b0]"></a>HAL_TIM_IC_CaptureCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_tim.o(i.HAL_TIM_IC_CaptureCallback))
@@ -1051,7 +1053,7 @@ Global Symbols
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 </UL>
 
 <P><STRONG><a name="[b1]"></a>HAL_TIM_OC_DelayElapsedCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_tim.o(i.HAL_TIM_OC_DelayElapsedCallback))
@@ -1066,7 +1068,7 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 </UL>
 
 <P><STRONG><a name="[bf]"></a>HAL_TIM_PWM_Init</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_Init))
@@ -1075,7 +1077,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_MspInit
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Base_SetConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 </UL>
 
 <P><STRONG><a name="[c0]"></a>HAL_TIM_PWM_MspInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_MspInit))
@@ -1139,7 +1141,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getBusVReg
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 </UL>
 
 <P><STRONG><a name="[d4]"></a>INA226_getBusVReg</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, bsp_ina226.o(i.INA226_getBusVReg))
@@ -1155,10 +1157,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = INA226_getCurrent &rArr; INA226_getCurrentReg &rArr; HAL_I2C_Master_Receive &rArr; I2C_MasterRequestRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getCurrentReg
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 </UL>
 
 <P><STRONG><a name="[d7]"></a>INA226_getCurrentReg</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, bsp_ina226.o(i.INA226_getCurrentReg))
@@ -1170,32 +1172,32 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getCurrent
 </UL>
 
-<P><STRONG><a name="[d8]"></a>INA226_getPower</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, bsp_ina226.o(i.INA226_getPower))
+<P><STRONG><a name="[d9]"></a>INA226_getPower</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, bsp_ina226.o(i.INA226_getPower))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = INA226_getPower &rArr; INA226_getPowerReg &rArr; HAL_I2C_Master_Receive &rArr; I2C_MasterRequestRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPowerReg
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPowerReg
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 </UL>
 
-<P><STRONG><a name="[d9]"></a>INA226_getPowerReg</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, bsp_ina226.o(i.INA226_getPowerReg))
+<P><STRONG><a name="[da]"></a>INA226_getPowerReg</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, bsp_ina226.o(i.INA226_getPowerReg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = INA226_getPowerReg &rArr; HAL_I2C_Master_Receive &rArr; I2C_MasterRequestRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Receive
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
 </UL>
 
-<P><STRONG><a name="[db]"></a>INA226_getShuntV</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, bsp_ina226.o(i.INA226_getShuntV))
+<P><STRONG><a name="[dc]"></a>INA226_getShuntV</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, bsp_ina226.o(i.INA226_getShuntV))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = INA226_getShuntV &rArr; HAL_I2C_Master_Receive &rArr; I2C_MasterRequestRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Receive
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 </UL>
 
 <P><STRONG><a name="[d1]"></a>INA226_setCalibrationReg</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, bsp_ina226.o(i.INA226_setCalibrationReg))
@@ -1222,26 +1224,26 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_Init
 </UL>
 
-<P><STRONG><a name="[dc]"></a>INA226_updata</STRONG> (Thumb, 358 bytes, Stack size 32 bytes, bsp_ina226.o(i.INA226_updata))
+<P><STRONG><a name="[dd]"></a>INA226_updata</STRONG> (Thumb, 358 bytes, Stack size 32 bytes, bsp_ina226.o(i.INA226_updata))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = INA226_updata &rArr; INA226_getPower &rArr; INA226_getPowerReg &rArr; HAL_I2C_Master_Receive &rArr; I2C_MasterRequestRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getShuntV
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getShuntV
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getCurrent
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getBusV
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communicate_task
 </UL>
 
-<P><STRONG><a name="[df]"></a>LED_Init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, bsp_led.o(i.LED_Init))
+<P><STRONG><a name="[e0]"></a>LED_Init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, bsp_led.o(i.LED_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LED_Init &rArr; Cap_Electricity_LED_Low
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_LED_UnReady
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_LED_UnReady
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Electricity_LED_Low
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_DisCharge_LED_Off
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Charge_LED_Off
@@ -1249,25 +1251,25 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e1]"></a>MX_CAN_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, can.o(i.MX_CAN_Init))
+<P><STRONG><a name="[e2]"></a>MX_CAN_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, can.o(i.MX_CAN_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_CAN_Init &rArr; HAL_CAN_Init &rArr; HAL_CAN_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e3]"></a>MX_FREERTOS_Init</STRONG> (Thumb, 52 bytes, Stack size 64 bytes, freertos.o(i.MX_FREERTOS_Init))
+<P><STRONG><a name="[e4]"></a>MX_FREERTOS_Init</STRONG> (Thumb, 52 bytes, Stack size 64 bytes, freertos.o(i.MX_FREERTOS_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = MX_FREERTOS_Init &rArr; osThreadCreate &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e5]"></a>MX_GPIO_Init</STRONG> (Thumb, 158 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[e6]"></a>MX_GPIO_Init</STRONG> (Thumb, 158 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -1276,35 +1278,35 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e6]"></a>MX_I2C1_Init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, i2c.o(i.MX_I2C1_Init))
+<P><STRONG><a name="[e7]"></a>MX_I2C1_Init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, i2c.o(i.MX_I2C1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_I2C1_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e7]"></a>MX_I2C2_Init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, i2c.o(i.MX_I2C2_Init))
+<P><STRONG><a name="[e8]"></a>MX_I2C2_Init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, i2c.o(i.MX_I2C2_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_I2C2_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e8]"></a>MX_TIM3_Init</STRONG> (Thumb, 144 bytes, Stack size 64 bytes, tim.o(i.MX_TIM3_Init))
+<P><STRONG><a name="[e9]"></a>MX_TIM3_Init</STRONG> (Thumb, 144 bytes, Stack size 64 bytes, tim.o(i.MX_TIM3_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = MX_TIM3_Init &rArr; HAL_TIM_MspPostInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_ConfigClockSource
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1335,7 +1337,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Pid_calc &rArr; __aeabi_fmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
@@ -1373,7 +1375,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1387,10 +1389,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl_Init
 </UL>
 
-<P><STRONG><a name="[e0]"></a>System_LED_UnReady</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, bsp_led.o(i.System_LED_UnReady))
+<P><STRONG><a name="[e1]"></a>System_LED_UnReady</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, bsp_led.o(i.System_LED_UnReady))
 <BR><BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 </UL>
 
 <P><STRONG><a name="[2a]"></a>TIM3_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.TIM3_IRQHandler))
@@ -1490,11 +1492,11 @@ Global Symbols
 <P><STRONG><a name="[3d]"></a>communicate_task</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, communicate.o(i.communicate_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = communicate_task &rArr; INA226_updata &rArr; INA226_getPower &rArr; INA226_getPowerReg &rArr; HAL_I2C_Master_Receive &rArr; I2C_MasterRequestRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_cmd_cap_data_power
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_cmd_cap_data
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_Init
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -1514,13 +1516,13 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = main &rArr; MX_FREERTOS_Init &rArr; osThreadCreate &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C2_Init
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN_Init
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C2_Init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN_Init
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_Init
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Charge_LED_On
@@ -1537,14 +1539,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e4]"></a>osThreadCreate</STRONG> (Thumb, 84 bytes, Stack size 32 bytes, cmsis_os.o(i.osThreadCreate))
+<P><STRONG><a name="[e5]"></a>osThreadCreate</STRONG> (Thumb, 84 bytes, Stack size 32 bytes, cmsis_os.o(i.osThreadCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = osThreadCreate &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;makeFreeRtosPriority
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
 </UL>
 
 <P><STRONG><a name="[10c]"></a>pvPortMalloc</STRONG> (Thumb, 210 bytes, Stack size 24 bytes, heap_4.o(i.pvPortMalloc))
@@ -1659,7 +1661,7 @@ Global Symbols
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
 </UL>
 
 <P><STRONG><a name="[ff]"></a>xTaskCreateStatic</STRONG> (Thumb, 86 bytes, Stack size 40 bytes, tasks.o(i.xTaskCreateStatic))
@@ -1668,7 +1670,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
@@ -1704,7 +1706,7 @@ Global Symbols
 <P><STRONG><a name="[5c]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl
 </UL>
 
@@ -1728,7 +1730,7 @@ Global Symbols
 <P><STRONG><a name="[60]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl
 </UL>
 
@@ -1747,8 +1749,8 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[de]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
-<BR><BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<P><STRONG><a name="[df]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
+<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 </UL>
 
 <P><STRONG><a name="[16a]"></a>_dfltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu), UNUSED)
@@ -1772,7 +1774,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communicate_task
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl
 </UL>
 
@@ -1802,6 +1804,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cdrcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid_calc
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl_Init
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl
 </UL>
 
@@ -1821,10 +1824,10 @@ Global Symbols
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
 </UL>
 
-<P><STRONG><a name="[dd]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<P><STRONG><a name="[de]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
 </UL>
 
 <P><STRONG><a name="[126]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
@@ -1847,17 +1850,17 @@ Global Symbols
 <P><STRONG><a name="[12a]"></a>__fpl_fcheck_NaN1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fcheck1.o(x$fpl$fcheck1))
 <BR><BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 </UL>
-<BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
+<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
 </UL>
 
 <P><STRONG><a name="[12f]"></a>__fpl_fcmp_Inf</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, fcmpi.o(x$fpl$fcmpinf), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
 </UL>
 
-<P><STRONG><a name="[da]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
+<P><STRONG><a name="[db]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fdiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
 </UL>
 
 <P><STRONG><a name="[12c]"></a>_fdiv</STRONG> (Thumb, 384 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv), UNUSED)
@@ -1869,6 +1872,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2uiz
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communicate_task
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl_Init
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl
 </UL>
 
@@ -1877,7 +1881,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d5]"></a>__aeabi_ui2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu))
-<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
+<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getCurrent
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getBusV
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_can_data
@@ -1896,11 +1900,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frcmple
 </UL>
 
-<P><STRONG><a name="[eb]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
+<P><STRONG><a name="[61]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communicate_task
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid_calc
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl
 </UL>
 
 <P><STRONG><a name="[130]"></a>_fmul</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul), UNUSED)
@@ -1953,11 +1958,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
 </UL>
 
-<P><STRONG><a name="[61]"></a>__ARM_scalbnf</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, scalbnf.o(x$fpl$scalbnf))
+<P><STRONG><a name="[d8]"></a>__ARM_scalbnf</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, scalbnf.o(x$fpl$scalbnf))
 <BR><BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getCurrent
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cap_Ctrl
 </UL>
 
 <P><STRONG><a name="[135]"></a>__fpl_cmpreturn</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer))
@@ -2218,7 +2222,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[fe]"></a>makeFreeRtosPriority</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, cmsis_os.o(i.makeFreeRtosPriority))
-<BR><BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
+<BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
 </UL>
 
 <P><STRONG><a name="[10e]"></a>prvHeapInit</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, heap_4.o(i.prvHeapInit))
