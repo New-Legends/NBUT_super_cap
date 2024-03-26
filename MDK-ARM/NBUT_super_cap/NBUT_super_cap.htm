@@ -3,7 +3,7 @@
 <title>Static Call Graph - [NBUT_super_cap\NBUT_super_cap.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image NBUT_super_cap\NBUT_super_cap.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Mar 08 18:51:48 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Mar 26 21:25:34 2024
 <BR><P>
 <H3>Maximum Stack Usage =        232 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1489,7 +1489,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[3d]"></a>communicate_task</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, communicate.o(i.communicate_task))
+<P><STRONG><a name="[3d]"></a>communicate_task</STRONG> (Thumb, 136 bytes, Stack size 0 bytes, communicate.o(i.communicate_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = communicate_task &rArr; INA226_updata &rArr; INA226_getPower &rArr; INA226_getPowerReg &rArr; HAL_I2C_Master_Receive &rArr; I2C_MasterRequestRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_updata
@@ -1504,12 +1504,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[85]"></a>get_can_data</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, can_receive.o(i.get_can_data))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = get_can_data
-</UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-</UL>
-<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
+<P><STRONG><a name="[85]"></a>get_can_data</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, can_receive.o(i.get_can_data))
+<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
 </UL>
 
 <P><STRONG><a name="[49]"></a>main</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, main.o(i.main))
@@ -1884,7 +1880,6 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getPower
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getCurrent
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INA226_getBusV
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_can_data
 </UL>
 
 <P><STRONG><a name="[16b]"></a>_ffltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu), UNUSED)

@@ -141,7 +141,7 @@ void Cap_Ctrl(void)
     else if((INA226_Data_cap.BusV > 12.5) || (cap_data.boom == CAP_MODE_CHARGE))
     {
         cap_ctrl_data.duty_cycle = Pid_calc(); 
-        ratio = 0.7;
+        ratio = 0.55;
     }
     else if((INA226_Data_cap.BusV > 8) || (cap_data.boom == CAP_MODE_CHARGE))
     {
